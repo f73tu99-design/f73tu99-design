@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" width="900" height="190" role="img" aria-label="Daily contribution chart for the last 30 days: 1763 contributions, peak of 166 in a single day.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" width="900" height="190" role="img" aria-label="Daily contribution chart for the last 30 days: 1764 contributions, peak of 166 in a single day.">
   <style>
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace} .s{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .lbl{fill:#4ec9b0;font-size:10px;letter-spacing:.17em;opacity:.8}
+    .sec{fill:#636e7b;font-size:10px;letter-spacing:.18em}
     .cap{fill:#636e7b;font-size:9.5px;letter-spacing:.04em}
     .val{fill:#e6edf3;font-size:14.5px}
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
@@ -10,14 +11,40 @@
     @keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .growY{transform-box:fill-box;transform-origin:bottom center;animation:growY .8s cubic-bezier(.2,.8,.3,1) both}
     @keyframes growY{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+    .draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.6s cubic-bezier(.4,0,.2,1) .5s both}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .breathe{animation:breathe 3.2s ease-in-out infinite}
+    @keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+    .glowt{animation:glowt 3.4s ease-in-out infinite}
+    @keyframes glowt{0%,100%{opacity:.16}50%{opacity:.42}}
     @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   </style>
 
-  <defs><clipPath id="ac-card"><rect x="1" y="1" width="898" height="188" rx="14"/></clipPath></defs>
-  <g clip-path="url(#ac-card)"><rect x="0" y="0" width="900" height="190" fill="#0d1117"/></g>
+  <defs>
+    <clipPath id="ac-card"><rect x="1" y="1" width="898" height="188" rx="14"/></clipPath>
+    <pattern id="ac-card-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+    </pattern>
+    <linearGradient id="ac-card-hl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#4ec9b0" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ac-card-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#ac-card)">
+    <rect x="0" y="0" width="900" height="190" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="190" fill="url(#ac-card-grid)"/>
+    <rect x="0" y="0" width="900" height="1.5" fill="url(#ac-card-hl)"/>
+  </g>
   <rect x="1" y="1" width="898" height="188" rx="14" fill="none" stroke="#21262d"/>
-  <text class="m lbl r" x="44" y="40" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
-  <text class="m cap r" x="856" y="40" text-anchor="end" style="animation-delay:.05s">1763 CONTRIBUTIONS &#183; PEAK 166</text>
+  <text class="m lbl r" x="44" y="34" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
+  <text class="m sec r" x="856" y="34" text-anchor="end" style="animation-delay:.05s">07 &#8212; ACTIVITY</text>
+  <text class="m cap r" x="44" y="52" style="animation-delay:.12s">1764 CONTRIBUTIONS &#183; PEAK 166 &#183; </text>
+  <line class="r" x1="280" y1="49" x2="298" y2="49" stroke="#4ec9b0" stroke-width="1.6" style="animation-delay:.12s"/>
+  <text class="m cap r" x="304" y="52" style="animation-delay:.12s">7-DAY AVERAGE</text>
   <line x1="44" y1="151" x2="856" y2="151" stroke="#21262d"/>
   <rect class="growY" x="44.0" y="104.1" width="22.2" height="45.9" rx="2" fill="#4ec9b0" fill-opacity="0.75" style="animation-delay:0.150s"><title>2026-08-24: 103</title></rect>
   <rect class="growY" x="71.2" y="115.2" width="22.2" height="34.8" rx="2" fill="#4ec9b0" fill-opacity="0.66" style="animation-delay:0.168s"><title>2026-08-25: 78</title></rect>
@@ -48,7 +75,9 @@
   <rect class="growY" x="752.1" y="146.0" width="22.2" height="4.0" rx="2" fill="#4ec9b0" fill-opacity="0.39" style="animation-delay:0.618s"><title>2026-09-19: 9</title></rect>
   <rect class="growY" x="779.3" y="111.2" width="22.2" height="38.8" rx="2" fill="#4ec9b0" fill-opacity="0.69" style="animation-delay:0.636s"><title>2026-09-20: 87</title></rect>
   <rect class="growY" x="806.5" y="76.0" width="22.2" height="74.0" rx="2" fill="#4ec9b0" fill-opacity="1.00" style="animation-delay:0.654s"><title>2026-09-21: 166</title></rect>
-  <rect class="growY" x="833.8" y="119.7" width="22.2" height="30.3" rx="2" fill="#4ec9b0" fill-opacity="0.62" style="animation-delay:0.672s"><title>2026-09-22: 68</title></rect>
+  <rect class="growY" x="833.8" y="119.2" width="22.2" height="30.8" rx="2" fill="#4ec9b0" fill-opacity="0.62" style="animation-delay:0.672s"><title>2026-09-22: 69</title></rect>
+  <path class="draw" d="M55.1 129.9 L82.3 130.4 L109.6 131.2 L136.8 127.6 L164.1 126.5 L191.3 126.3 L218.5 125.5 L245.8 129.9 L273.0 134.8 L300.2 136.2 L327.5 135.9 L354.7 136.7 L381.9 132.5 L409.2 131.1 L436.4 130.3 L463.6 125.0 L490.9 121.1 L518.1 122.0 L545.3 121.8 L572.6 125.4 L599.8 128.6 L627.0 126.3 L654.3 127.0 L681.5 125.6 L708.7 120.2 L736.0 121.9 L763.2 122.5 L790.4 117.4 L817.6 112.2 L844.9 112.4" fill="none" stroke="#4ec9b0" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+  <path d="M55.1 129.9 L82.3 130.4 L109.6 131.2 L136.8 127.6 L164.1 126.5 L191.3 126.3 L218.5 125.5 L245.8 129.9 L273.0 134.8 L300.2 136.2 L327.5 135.9 L354.7 136.7 L381.9 132.5 L409.2 131.1 L436.4 130.3 L463.6 125.0 L490.9 121.1 L518.1 122.0 L545.3 121.8 L572.6 125.4 L599.8 128.6 L627.0 126.3 L654.3 127.0 L681.5 125.6 L708.7 120.2 L736.0 121.9 L763.2 122.5 L790.4 117.4 L817.6 112.2 L844.9 112.4" fill="none" stroke="#4ec9b0" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".18" filter="url(#ac-card-glow)"/>
   <text class="m cap r" x="44" y="172" style="animation-delay:.6s">2026-08-24</text>
   <text class="m cap r" x="856" y="172" text-anchor="end" style="animation-delay:.6s">2026-09-22</text>
 </svg>

@@ -1,12 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 212" width="900" height="212" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 222" width="900" height="222" role="img"
      aria-label="How I work. One: ship small, ship often. Two: types at the boundary. Three: measure before optimising.">
   <title>How I work</title>
-  <defs><clipPath id="p-card"><rect x="1" y="1" width="898" height="210" rx="14"/></clipPath></defs>
+  <defs>
+    <clipPath id="p-card"><rect x="1" y="1" width="898" height="220" rx="14"/></clipPath>
+    <pattern id="p-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+    </pattern>
+    <linearGradient id="p-hl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".55"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
   <style>
     .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
     .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
     .sub{fill:#636e7b;font-size:11px}
+    .sec{fill:#636e7b;font-size:10px;letter-spacing:.18em}
+    .ghost{fill:#e6edf3;fill-opacity:.045;font-size:72px;font-weight:800;letter-spacing:-3px}
     .num{fill:#4ec9b0;font-size:10.5px;letter-spacing:.14em;opacity:.75}
     .ttl{fill:#e6edf3;font-size:13.5px;font-weight:600}
     .bd {fill:#7d8590;font-size:11.5px}
@@ -14,16 +24,25 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
     .bar{transform-box:fill-box;transform-origin:top center;animation:grow .9s cubic-bezier(.2,.8,.3,1) both}
     @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-     (prefers-reduced-motion:reduce){*{animation:none !important}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   </style>
 
-  <g clip-path="url(#p-card)"><rect x="0" y="0" width="900" height="212" fill="#0d1117"/></g>
-  <rect x="1" y="1" width="898" height="210" rx="14" fill="none" stroke="#21262d"/>
+  <g clip-path="url(#p-card)">
+    <rect x="0" y="0" width="900" height="222" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="222" fill="url(#p-grid)"/>
+    <rect x="0" y="0" width="900" height="1.5" fill="url(#p-hl)"/>
+    <!-- ghost numerals sit behind everything -->
+    <text class="s ghost r" x="36"  y="196" style="animation-delay:.2s">01</text>
+    <text class="s ghost r" x="312" y="196" style="animation-delay:.32s">02</text>
+    <text class="s ghost r" x="588" y="196" style="animation-delay:.44s">03</text>
+  </g>
+  <rect x="1" y="1" width="898" height="220" rx="14" fill="none" stroke="#21262d"/>
 
   <text class="s h r"   x="44" y="48" style="animation-delay:.05s">How I work</text>
   <text class="m sub r" x="44" y="68" style="animation-delay:.12s">three habits that survived contact with production</text>
+  <text class="m sec r" x="856" y="34" text-anchor="end" style="animation-delay:.05s">04 &#8212; PRINCIPLES</text>
 
-  <g transform="translate(44,104)">
+  <g transform="translate(44,108)">
     <g>
       <rect class="bar" x="0" y="0" width="2" height="62" fill="#4ec9b0" fill-opacity=".45" style="animation-delay:.22s"/>
       <g class="r" style="animation-delay:.26s">

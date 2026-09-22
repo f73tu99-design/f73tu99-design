@@ -6,7 +6,7 @@
  *   GH_LOGIN      optional  (defaults to the profile owner)
  */
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
-import { T, esc, nfmt, frame, svg } from './theme.mjs';
+import { T, esc, nfmt, frame, section, svg } from './theme.mjs';
 
 const LOGIN = process.env.GH_LOGIN || 'f73tu99-design';
 const TOKEN = process.env.GITHUB_TOKEN;
@@ -147,10 +147,11 @@ function renderStats(d) {
 
   const body = `${frame(W, H, 'st-card')}
   <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">GITHUB SIGNAL</text>
-  <text class="m cap r" x="${W - 24}" y="34" text-anchor="end" style="animation-delay:.05s">LAST 12 MONTHS</text>
+${section(W, '05', 'SIGNAL')}
 
+  <text class="s glowt" x="24" y="86" font-size="32" font-weight="650" fill="${T.accent}" filter="url(#st-card-glow)">${nfmt(d.total)}</text>
   <text class="s r" x="24" y="86" font-size="32" font-weight="650" fill="${T.text}" style="animation-delay:.14s">${nfmt(d.total)}</text>
-  <text class="m r" x="24" y="105" font-size="10.5" fill="${T.muted}" style="animation-delay:.20s">contributions</text>
+  <text class="m r" x="24" y="105" font-size="10.5" fill="${T.muted}" style="animation-delay:.20s">contributions &#183; last 12 months</text>
 
   <g class="r" style="animation-delay:.24s">
     <rect x="${W - 140}" y="60" width="116" height="30" rx="8" fill="${T.panel}" stroke="${T.line}"/>
@@ -188,8 +189,8 @@ function renderLanguages(d) {
 
   if (!sum) {
     const body = `${frame(W, H, 'lg-card')}
-  <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES</text>
-  <text class="m cap r" x="${W - 24}" y="34" text-anchor="end" style="animation-delay:.05s">BY BYTES WRITTEN</text>
+  <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES &#183; BY BYTES</text>
+${section(W, '06', 'LANGUAGES')}
   <rect x="24" y="56" width="${W - 48}" height="10" rx="5" fill="${T.panel}"/>
   <text class="m r" x="24" y="110" font-size="12" fill="${T.muted}" style="animation-delay:.18s">no public code yet</text>
   <text class="m r" x="24" y="130" font-size="10.5" fill="${T.dim}" style="animation-delay:.24s">this panel fills itself in on your first public push</text>`;
@@ -222,8 +223,8 @@ function renderLanguages(d) {
 
   const body = `${frame(W, H, 'lg-card')}
   <defs><clipPath id="lg-bar"><rect x="24" y="56" width="${barW}" height="10" rx="5"/></clipPath></defs>
-  <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES</text>
-  <text class="m cap r" x="${W - 24}" y="34" text-anchor="end" style="animation-delay:.05s">BY BYTES WRITTEN</text>
+  <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES &#183; BY BYTES</text>
+${section(W, '06', 'LANGUAGES')}
   <rect x="24" y="56" width="${barW}" height="10" rx="5" fill="${T.panel}"/>
   <g clip-path="url(#lg-bar)">
 ${segs}
@@ -258,14 +259,35 @@ function renderActivity(d) {
     .join('\n');
 
   const sum = days.reduce((a, x) => a + x.contributionCount, 0);
+
+  // 7-day trailing mean, looking back into the full year so the first points
+  // of the window are not artificially low.
+  const all = d.days;
+  const start = all.length - days.length;
+  const avgPath = days
+    .map((_, i) => {
+      const idx = start + i;
+      const win = all.slice(Math.max(0, idx - 6), idx + 1);
+      const v = win.reduce((a, x) => a + x.contributionCount, 0) / win.length;
+      const x = left + i * (barW + gap) + barW / 2;
+      const y = baseY - (v / max) * maxH;
+      return `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`;
+    })
+    .join(' ');
+
   const first = days.length ? days[0].date : '';
   const last = days.length ? days[days.length - 1].date : '';
 
   const body = `${frame(W, H, 'ac-card')}
-  <text class="m lbl r" x="${left}" y="40" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
-  <text class="m cap r" x="${right}" y="40" text-anchor="end" style="animation-delay:.05s">${sum} CONTRIBUTIONS &#183; PEAK ${max}</text>
+  <text class="m lbl r" x="${left}" y="34" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
+${section(W, '07', 'ACTIVITY', 44)}
+  <text class="m cap r" x="${left}" y="52" style="animation-delay:.12s">${sum} CONTRIBUTIONS &#183; PEAK ${max} &#183; </text>
+  <line class="r" x1="${left + 236}" y1="49" x2="${left + 254}" y2="49" stroke="${T.accent}" stroke-width="1.6" style="animation-delay:.12s"/>
+  <text class="m cap r" x="${left + 260}" y="52" style="animation-delay:.12s">7-DAY AVERAGE</text>
   <line x1="${left}" y1="${baseY + 1}" x2="${right}" y2="${baseY + 1}" stroke="${T.line}"/>
 ${bars}
+  <path class="draw" d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+  <path d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".18" filter="url(#ac-card-glow)"/>
   <text class="m cap r" x="${left}" y="172" style="animation-delay:.6s">${esc(first)}</text>
   <text class="m cap r" x="${right}" y="172" text-anchor="end" style="animation-delay:.6s">${esc(last)}</text>`;
 

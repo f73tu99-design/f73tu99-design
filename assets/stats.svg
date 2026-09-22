@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 224" width="440" height="224" role="img" aria-label="GitHub statistics for f73tu99-design: 2817 contributions in the last 12 months, of which 2811 are private and 6 public. 16 repositories, 0 stars, 3 followers, 43 day streak.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 224" width="440" height="224" role="img" aria-label="GitHub statistics for f73tu99-design: 2818 contributions in the last 12 months, of which 2811 are private and 7 public. 16 repositories, 0 stars, 3 followers, 43 day streak.">
   <style>
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace} .s{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .lbl{fill:#4ec9b0;font-size:10px;letter-spacing:.17em;opacity:.8}
+    .sec{fill:#636e7b;font-size:10px;letter-spacing:.18em}
     .cap{fill:#636e7b;font-size:9.5px;letter-spacing:.04em}
     .val{fill:#e6edf3;font-size:14.5px}
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
@@ -10,17 +11,41 @@
     @keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .growY{transform-box:fill-box;transform-origin:bottom center;animation:growY .8s cubic-bezier(.2,.8,.3,1) both}
     @keyframes growY{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+    .draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.6s cubic-bezier(.4,0,.2,1) .5s both}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .breathe{animation:breathe 3.2s ease-in-out infinite}
+    @keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+    .glowt{animation:glowt 3.4s ease-in-out infinite}
+    @keyframes glowt{0%,100%{opacity:.16}50%{opacity:.42}}
     @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   </style>
 
-  <defs><clipPath id="st-card"><rect x="1" y="1" width="438" height="222" rx="14"/></clipPath></defs>
-  <g clip-path="url(#st-card)"><rect x="0" y="0" width="440" height="224" fill="#0d1117"/></g>
+  <defs>
+    <clipPath id="st-card"><rect x="1" y="1" width="438" height="222" rx="14"/></clipPath>
+    <pattern id="st-card-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+    </pattern>
+    <linearGradient id="st-card-hl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#4ec9b0" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="st-card-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#st-card)">
+    <rect x="0" y="0" width="440" height="224" fill="#0d1117"/>
+    <rect x="0" y="0" width="440" height="224" fill="url(#st-card-grid)"/>
+    <rect x="0" y="0" width="440" height="1.5" fill="url(#st-card-hl)"/>
+  </g>
   <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#21262d"/>
   <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">GITHUB SIGNAL</text>
-  <text class="m cap r" x="416" y="34" text-anchor="end" style="animation-delay:.05s">LAST 12 MONTHS</text>
+  <text class="m sec r" x="416" y="34" text-anchor="end" style="animation-delay:.05s">05 &#8212; SIGNAL</text>
 
+  <text class="s glowt" x="24" y="86" font-size="32" font-weight="650" fill="#4ec9b0" filter="url(#st-card-glow)">2.8k</text>
   <text class="s r" x="24" y="86" font-size="32" font-weight="650" fill="#e6edf3" style="animation-delay:.14s">2.8k</text>
-  <text class="m r" x="24" y="105" font-size="10.5" fill="#7d8590" style="animation-delay:.20s">contributions</text>
+  <text class="m r" x="24" y="105" font-size="10.5" fill="#7d8590" style="animation-delay:.20s">contributions &#183; last 12 months</text>
 
   <g class="r" style="animation-delay:.24s">
     <rect x="300" y="60" width="116" height="30" rx="8" fill="#11161d" stroke="#21262d"/>
@@ -39,7 +64,7 @@
     <circle cx="28" cy="150" r="3.5" fill="#4ec9b0" fill-opacity=".38"/>
     <text class="m" x="38" y="154" font-size="10.5" fill="#7d8590">2.8k private</text>
     <circle cx="150" cy="150" r="3.5" fill="#4ec9b0"/>
-    <text class="m" x="160" y="154" font-size="10.5" fill="#7d8590">6 public</text>
+    <text class="m" x="160" y="154" font-size="10.5" fill="#7d8590">7 public</text>
   </g>
 
   <line x1="24" y1="170" x2="416" y2="170" stroke="#21262d"/>
