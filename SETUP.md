@@ -30,7 +30,8 @@ Consequences worth knowing:
 | `assets/stats.svg` | generated — `scripts/generate.mjs` |
 | `assets/languages.svg` | generated — `scripts/generate.mjs` |
 | `assets/activity.svg` | generated — `scripts/generate.mjs` |
-| `assets/snake.svg`, `assets/snake-dark.svg` | generated — `Platane/snk` action |
+| `assets/snake.svg` | generated — `Platane/snk`, then wrapped in the card chrome by `scripts/frame-snake.mjs` |
+| `assets/btn-github.svg`, `assets/btn-x.svg` | hand-authored link buttons; the `<a>` around each lives in `README.md` because links inside an `<img>` are not clickable |
 | `assets/metrics.json` | generated — high-water mark for the regression guard |
 | everything else in `assets/` | hand-authored, edit freely |
 
