@@ -7,11 +7,14 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { frame, section, svg } from './theme.mjs';
 
 const file = new URL('../assets/snake.svg', import.meta.url);
-const src = await readFile(file, 'utf8');
+let src = await readFile(file, 'utf8');
 
-if (src.includes('data-framed="1"')) {
-  console.log('snake.svg already framed');
-  process.exit(0);
+// Already framed? Pull the raw snake back out and re-wrap it, so a theme
+// change propagates instead of being skipped.
+const framed = src.match(/<svg data-framed="1"[^>]*>([\s\S]*?)<\/svg>\s*<\/svg>\s*$/);
+if (framed) {
+  const vb = (src.match(/<svg data-framed="1"[^>]*viewBox="([^"]+)"/) || [])[1] || '-16 -32 880 192';
+  src = `<svg viewBox="${vb}">${framed[1]}</svg>`;
 }
 
 const m = src.match(/<svg\b([^>]*)>([\s\S]*)<\/svg>\s*$/);
@@ -23,7 +26,7 @@ const viewBox = (m[1].match(/viewBox="([^"]+)"/) || [])[1] || '-16 -32 880 192';
 // colours the action was asked for. Unknown variables are left untouched.
 const palette = {
   cs: '#4ec9b0',                 // the snake
-  ce: '#2b3440', c0: '#2b3440',  // empty days
+  ce: '#363f4a', c0: '#363f4a',  // empty days
   c1: '#1f4d44', c2: '#2a7a6a', c3: '#3aa68e', c4: '#4ec9b0',
 };
 const inner = m[2].replace(/--(c[s0-4e]):([^;}]+)/g, (all, name) =>

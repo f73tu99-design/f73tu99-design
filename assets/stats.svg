@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 224" width="440" height="224" role="img" aria-label="GitHub statistics for f73tu99-design: 2819 contributions in the last 12 months, of which 2811 are private and 8 public. 16 repositories, 0 stars, 3 followers, 43 day streak.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 224" width="440" height="224" role="img" aria-label="GitHub statistics for f73tu99-design: 2834 contributions in the last 12 months, of which 2813 are private and 21 public. 16 repositories, 0 stars, 3 followers, 43 day streak.">
   <style>
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace} .s{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .lbl{fill:#4ec9b0;font-size:10px;letter-spacing:.17em;opacity:.8}
-    .sec{fill:#7d8590;font-size:10px;letter-spacing:.18em}
-    .cap{fill:#7d8590;font-size:9.5px;letter-spacing:.04em}
-    .val{fill:#f0f6fc;font-size:14.5px}
+    .sec{fill:#8e887d;font-size:10px;letter-spacing:.18em}
+    .cap{fill:#8e887d;font-size:9.5px;letter-spacing:.04em}
+    .val{fill:#f3eee4;font-size:14.5px}
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
     .growX{transform-box:fill-box;transform-origin:left center;animation:growX .9s cubic-bezier(.2,.8,.3,1) both}
@@ -23,7 +23,7 @@
   <defs>
     <clipPath id="st-card"><rect x="1" y="1" width="438" height="222" rx="14"/></clipPath>
     <pattern id="st-card-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
+      <circle cx="1" cy="1" r="1" fill="#f3eee4" fill-opacity=".07"/>
     </pattern>
     <linearGradient id="st-card-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
@@ -35,39 +35,39 @@
     </filter>
   </defs>
   <g clip-path="url(#st-card)">
-    <rect x="0" y="0" width="440" height="224" fill="#141a21"/>
+    <rect x="0" y="0" width="440" height="224" fill="#1c2129"/>
     <rect x="0" y="0" width="440" height="224" fill="url(#st-card-grid)"/>
     <rect x="0" y="0" width="440" height="1.5" fill="url(#st-card-hl)"/>
   </g>
-  <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#2b3440"/>
+  <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#363f4a"/>
   <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">GITHUB SIGNAL</text>
   <text class="m sec r" x="416" y="34" text-anchor="end" style="animation-delay:.05s">05 &#8212; SIGNAL</text>
 
   <text class="s glowt" x="24" y="86" font-size="32" font-weight="650" fill="#4ec9b0" filter="url(#st-card-glow)">2.8k</text>
-  <text class="s r" x="24" y="86" font-size="32" font-weight="650" fill="#f0f6fc" style="animation-delay:.14s">2.8k</text>
-  <text class="m r" x="24" y="105" font-size="10.5" fill="#8b949e" style="animation-delay:.20s">contributions &#183; last 12 months</text>
+  <text class="s r" x="24" y="86" font-size="32" font-weight="650" fill="#f3eee4" style="animation-delay:.14s">2.8k</text>
+  <text class="m r" x="24" y="105" font-size="10.5" fill="#a19b90" style="animation-delay:.20s">contributions &#183; last 12 months</text>
 
   <g class="r" style="animation-delay:.24s">
-    <rect x="300" y="60" width="116" height="30" rx="8" fill="#1c232d" stroke="#2b3440"/>
+    <rect x="300" y="60" width="116" height="30" rx="8" fill="#262d36" stroke="#363f4a"/>
     <text class="m" x="314" y="79" font-size="11" fill="#4ec9b0">43</text>
-    <text class="m" x="335.4" y="79" font-size="10" fill="#8b949e">day streak</text>
+    <text class="m" x="335.4" y="79" font-size="10" fill="#a19b90">day streak</text>
   </g>
 
-  <rect x="24" y="126" width="392" height="6" rx="3" fill="#1c232d"/>
+  <rect x="24" y="126" width="392" height="6" rx="3" fill="#262d36"/>
   <g clip-path="url(#st-bar)">
-    <rect class="growX" x="24" y="126" width="391" height="6" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.26s"/>
-    <rect class="growX" x="415" y="126" width="1" height="6" fill="#4ec9b0" style="animation-delay:.34s"/>
+    <rect class="growX" x="24" y="126" width="389" height="6" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.26s"/>
+    <rect class="growX" x="413" y="126" width="3" height="6" fill="#4ec9b0" style="animation-delay:.34s"/>
   </g>
   <defs><clipPath id="st-bar"><rect x="24" y="126" width="392" height="6" rx="3"/></clipPath></defs>
 
   <g class="r" style="animation-delay:.30s">
     <circle cx="28" cy="150" r="3.5" fill="#4ec9b0" fill-opacity=".38"/>
-    <text class="m" x="38" y="154" font-size="10.5" fill="#8b949e">2.8k private</text>
+    <text class="m" x="38" y="154" font-size="10.5" fill="#a19b90">2.8k private</text>
     <circle cx="150" cy="150" r="3.5" fill="#4ec9b0"/>
-    <text class="m" x="160" y="154" font-size="10.5" fill="#8b949e">8 public</text>
+    <text class="m" x="160" y="154" font-size="10.5" fill="#a19b90">21 public</text>
   </g>
 
-  <line x1="24" y1="170" x2="416" y2="170" stroke="#2b3440"/>
+  <line x1="24" y1="170" x2="416" y2="170" stroke="#363f4a"/>
   <g class="r" style="animation-delay:0.36s">
     <text class="m val" x="24" y="196">16</text>
     <text class="m cap" x="24" y="211">repos</text>

@@ -14,11 +14,11 @@
     @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
     @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   </style>
-  <rect x="1" y="1" width="168" height="38" rx="19" fill="#1c232d" stroke="#2b3440"/>
+  <rect x="1" y="1" width="168" height="38" rx="19" fill="#262d36" stroke="#363f4a"/>
   <g clip-path="url(#bx-clip)"><rect class="sheen" x="0" y="0" width="120" height="40" fill="url(#bx-sheen)"/></g>
   <rect x="9" y="9" width="22" height="22" rx="7" fill="#4ec9b0" fill-opacity=".14" stroke="#4ec9b0" stroke-opacity=".55"/>
   <!-- X mark -->
   <path d="M14.5 14.5 L25.5 25.5 M25.5 14.5 L14.5 25.5" stroke="#4ec9b0" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <text class="m" x="42" y="24.5" font-size="12" fill="#f0f6fc">@f73tu99</text>
-  <text class="m arr" x="152" y="25" font-size="12" fill="#8b949e" text-anchor="end">&#8599;</text>
+  <text class="m" x="42" y="24.5" font-size="12" fill="#f3eee4">@f73tu99</text>
+  <text class="m arr" x="152" y="25" font-size="12" fill="#a19b90" text-anchor="end">&#8599;</text>
 </svg>

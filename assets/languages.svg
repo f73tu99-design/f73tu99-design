@@ -2,9 +2,9 @@
   <style>
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace} .s{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .lbl{fill:#4ec9b0;font-size:10px;letter-spacing:.17em;opacity:.8}
-    .sec{fill:#7d8590;font-size:10px;letter-spacing:.18em}
-    .cap{fill:#7d8590;font-size:9.5px;letter-spacing:.04em}
-    .val{fill:#f0f6fc;font-size:14.5px}
+    .sec{fill:#8e887d;font-size:10px;letter-spacing:.18em}
+    .cap{fill:#8e887d;font-size:9.5px;letter-spacing:.04em}
+    .val{fill:#f3eee4;font-size:14.5px}
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
     .growX{transform-box:fill-box;transform-origin:left center;animation:growX .9s cubic-bezier(.2,.8,.3,1) both}
@@ -23,7 +23,7 @@
   <defs>
     <clipPath id="lg-card"><rect x="1" y="1" width="438" height="222" rx="14"/></clipPath>
     <pattern id="lg-card-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
+      <circle cx="1" cy="1" r="1" fill="#f3eee4" fill-opacity=".07"/>
     </pattern>
     <linearGradient id="lg-card-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
@@ -35,51 +35,51 @@
     </filter>
   </defs>
   <g clip-path="url(#lg-card)">
-    <rect x="0" y="0" width="440" height="224" fill="#141a21"/>
+    <rect x="0" y="0" width="440" height="224" fill="#1c2129"/>
     <rect x="0" y="0" width="440" height="224" fill="url(#lg-card-grid)"/>
     <rect x="0" y="0" width="440" height="1.5" fill="url(#lg-card-hl)"/>
   </g>
-  <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#2b3440"/>
+  <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#363f4a"/>
   <defs><clipPath id="lg-bar"><rect x="24" y="56" width="392" height="10" rx="5"/></clipPath></defs>
   <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES &#183; BY BYTES</text>
   <text class="m sec r" x="416" y="34" text-anchor="end" style="animation-delay:.05s">06 &#8212; LANGUAGES</text>
-  <rect x="24" y="56" width="392" height="10" rx="5" fill="#1c232d"/>
+  <rect x="24" y="56" width="392" height="10" rx="5" fill="#262d36"/>
   <g clip-path="url(#lg-bar)">
     <rect class="growX" x="24.0" y="56" width="212.7" height="10" fill="#4F5D95" style="animation-delay:0.18s"/>
     <rect class="growX" x="236.7" y="56" width="115.6" height="10" fill="#3178c6" style="animation-delay:0.25s"/>
-    <rect class="growX" x="352.3" y="56" width="30.3" height="10" fill="#f1e05a" style="animation-delay:0.32s"/>
+    <rect class="growX" x="352.3" y="56" width="30.4" height="10" fill="#f1e05a" style="animation-delay:0.32s"/>
     <rect class="growX" x="382.6" y="56" width="29.3" height="10" fill="#663399" style="animation-delay:0.39s"/>
     <rect class="growX" x="411.9" y="56" width="3.6" height="10" fill="#f7523f" style="animation-delay:0.46s"/>
     <rect class="growX" x="415.5" y="56" width="3.0" height="10" fill="#89e051" style="animation-delay:0.53s"/>
   </g>
   <g class="r" style="animation-delay:0.32s">
     <circle cx="28" cy="100" r="4" fill="#4F5D95"/>
-    <text class="m" x="40" y="104" font-size="11.5" fill="#c9d1d9">PHP</text>
-    <text class="m" x="200" y="104" font-size="11" fill="#7d8590" text-anchor="end">54.3%</text>
+    <text class="m" x="40" y="104" font-size="11.5" fill="#d8d1c4">PHP</text>
+    <text class="m" x="200" y="104" font-size="11" fill="#8e887d" text-anchor="end">54.3%</text>
   </g>
   <g class="r" style="animation-delay:0.37s">
     <circle cx="228" cy="100" r="4" fill="#3178c6"/>
-    <text class="m" x="240" y="104" font-size="11.5" fill="#c9d1d9">TypeScript</text>
-    <text class="m" x="400" y="104" font-size="11" fill="#7d8590" text-anchor="end">29.5%</text>
+    <text class="m" x="240" y="104" font-size="11.5" fill="#d8d1c4">TypeScript</text>
+    <text class="m" x="400" y="104" font-size="11" fill="#8e887d" text-anchor="end">29.5%</text>
   </g>
   <g class="r" style="animation-delay:0.42s">
     <circle cx="28" cy="132" r="4" fill="#f1e05a"/>
-    <text class="m" x="40" y="136" font-size="11.5" fill="#c9d1d9">JavaScript</text>
-    <text class="m" x="200" y="136" font-size="11" fill="#7d8590" text-anchor="end">7.7%</text>
+    <text class="m" x="40" y="136" font-size="11.5" fill="#d8d1c4">JavaScript</text>
+    <text class="m" x="200" y="136" font-size="11" fill="#8e887d" text-anchor="end">7.7%</text>
   </g>
   <g class="r" style="animation-delay:0.47s">
     <circle cx="228" cy="132" r="4" fill="#663399"/>
-    <text class="m" x="240" y="136" font-size="11.5" fill="#c9d1d9">CSS</text>
-    <text class="m" x="400" y="136" font-size="11" fill="#7d8590" text-anchor="end">7.5%</text>
+    <text class="m" x="240" y="136" font-size="11.5" fill="#d8d1c4">CSS</text>
+    <text class="m" x="400" y="136" font-size="11" fill="#8e887d" text-anchor="end">7.5%</text>
   </g>
   <g class="r" style="animation-delay:0.52s">
     <circle cx="28" cy="164" r="4" fill="#f7523f"/>
-    <text class="m" x="40" y="168" font-size="11.5" fill="#c9d1d9">Blade</text>
-    <text class="m" x="200" y="168" font-size="11" fill="#7d8590" text-anchor="end">0.9%</text>
+    <text class="m" x="40" y="168" font-size="11.5" fill="#d8d1c4">Blade</text>
+    <text class="m" x="200" y="168" font-size="11" fill="#8e887d" text-anchor="end">0.9%</text>
   </g>
   <g class="r" style="animation-delay:0.57s">
     <circle cx="228" cy="164" r="4" fill="#89e051"/>
-    <text class="m" x="240" y="168" font-size="11.5" fill="#c9d1d9">Shell</text>
-    <text class="m" x="400" y="168" font-size="11" fill="#7d8590" text-anchor="end">0.1%</text>
+    <text class="m" x="240" y="168" font-size="11.5" fill="#d8d1c4">Shell</text>
+    <text class="m" x="400" y="168" font-size="11" fill="#8e887d" text-anchor="end">0.1%</text>
   </g>
 </svg>

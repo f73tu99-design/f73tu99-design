@@ -248,16 +248,22 @@ function renderActivity(d) {
   const baseY = 168;
   const maxH = 84;
   const xOf = (i) => left + i * (barW + gap);
+  const geom = days.map((day, i) => {
+    const c = day.contributionCount;
+    const h = c ? Math.max(3, (c / max) * maxH) : 2;
+    return { c, x: xOf(i).toFixed(1), y: (baseY - h).toFixed(1), w: barW.toFixed(1), h: h.toFixed(1) };
+  });
 
-  const bars = days
-    .map((day, i) => {
-      const c = day.contributionCount;
-      const h = c ? Math.max(3, (c / max) * maxH) : 2;
-      const fill = c ? 'url(#ac-bar)' : T.line2;
-      const op = c ? (0.45 + 0.55 * (c / max)).toFixed(2) : '1';
-      return `  <rect class="growY" x="${xOf(i).toFixed(1)}" y="${(baseY - h).toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${fill}" fill-opacity="${op}" style="animation-delay:${(0.15 + i * 0.018).toFixed(3)}s"><title>${esc(day.date)}: ${c}</title></rect>`;
+  const bars = geom
+    .map((g, i) => {
+      const fill = g.c ? 'url(#ac-bar)' : T.line2;
+      const op = g.c ? (0.45 + 0.55 * (g.c / max)).toFixed(2) : '1';
+      return `  <rect class="growY" x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" rx="3" fill="${fill}" fill-opacity="${op}" style="animation-delay:${(0.15 + i * 0.018).toFixed(3)}s"><title>${esc(days[i].date)}: ${g.c}</title></rect>`;
     })
     .join('\n');
+
+  // Same geometry, no animation: a clip so the shimmer only lights the bars.
+  const barClip = geom.map((g) => `<rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" rx="3"/>`).join('');
 
   const sum = days.reduce((a, x) => a + x.contributionCount, 0);
 
@@ -275,6 +281,7 @@ function renderActivity(d) {
   const areaPath = pts.length
     ? `${avgPath} L${pts[pts.length - 1][0].toFixed(1)} ${baseY} L${pts[0][0].toFixed(1)} ${baseY} Z`
     : '';
+  const [ex, ey] = pts.length ? pts[pts.length - 1] : [right, baseY];
 
   // Peak callout above the tallest bar.
   const peakIdx = days.findIndex((x) => x.contributionCount === max);
@@ -303,7 +310,17 @@ function renderActivity(d) {
     <linearGradient id="ac-area" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="${T.accent}" stop-opacity=".22"/><stop offset="100%" stop-color="${T.accent}" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="ac-shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="${T.text}" stop-opacity="0"/><stop offset="50%" stop-color="${T.text}" stop-opacity=".45"/><stop offset="100%" stop-color="${T.text}" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="ac-bars">${barClip}</clipPath>
   </defs>
+  <style>
+    .shine{animation:shine 7s linear 1.2s infinite}
+    @keyframes shine{from{transform:translateX(0)}to{transform:translateX(${W + 160}px)}}
+    .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+    @keyframes pulse{0%{transform:scale(.5);opacity:.75}100%{transform:scale(2.8);opacity:0}}
+  </style>
   <text class="m lbl r" x="${left}" y="34" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
 ${section(W, '07', 'ACTIVITY', 44)}
   <text class="m cap r" x="${left}" y="52" style="animation-delay:.12s">${sum} CONTRIBUTIONS &#183; PEAK ${max} &#183; </text>
@@ -311,9 +328,12 @@ ${section(W, '07', 'ACTIVITY', 44)}
   <text class="m cap r" x="${left + 260}" y="52" style="animation-delay:.12s">7-DAY AVERAGE</text>
   <line x1="${left}" y1="${baseY + 1}" x2="${right}" y2="${baseY + 1}" stroke="${T.line}"/>
 ${bars}
+  <rect class="shine" x="-160" y="${baseY - maxH - 30}" width="160" height="${maxH + 32}" fill="url(#ac-shine)" clip-path="url(#ac-bars)"/>
   <path class="r" d="${areaPath}" fill="url(#ac-area)" style="animation-delay:.9s"/>
   <path d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".18" filter="url(#ac-card-glow)"/>
   <path class="draw" d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+  <circle class="pulse" cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="4" fill="${T.accent}"/>
+  <circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="3" fill="${T.accent}"/>
 ${peak}
   <text class="m cap r" x="${left}" y="192" style="animation-delay:.6s">${esc(first)}</text>
   <text class="m cap r" x="${right}" y="192" text-anchor="end" style="animation-delay:.6s">${esc(last)}</text>`;

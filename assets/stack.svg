@@ -1,91 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img"
-     aria-label="Stack, grouped by layer. Frontend: TypeScript, JavaScript, Blade, CSS, Vite. Backend: PHP, Laravel, Eloquent, REST, Queues. Data: MySQL, SQL, Migrations, Seeders, Caching. Ops: Git, GitHub Actions, Composer, Docker, Linux.">
-  <title>Stack &#8212; grouped by layer</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330" role="img"
+     aria-label="Stack as four layers. Frontend: TypeScript, JavaScript, Blade, CSS, Vite. Backend: PHP, Laravel, Eloquent, REST, Queues. Data: MySQL, SQL, Migrations, Seeders, Caching. Ops: Git, GitHub Actions, Composer, Docker, Linux.">
+  <title>Stack &#8212; four layers, top to bottom</title>
 
   <defs>
     <pattern id="s-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
+      <circle cx="1" cy="1" r="1" fill="#f3eee4" fill-opacity=".07"/>
     </pattern>
     <linearGradient id="s-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".55"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="s-scan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity=".16"/>
+    <linearGradient id="s-rail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#363f4a"/><stop offset="50%" stop-color="#43505d"/><stop offset="100%" stop-color="#363f4a"/>
     </linearGradient>
-    <clipPath id="s-card"><rect x="1" y="1" width="898" height="298" rx="14"/></clipPath>
+    <filter id="s-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+    <clipPath id="s-card"><rect x="1" y="1" width="898" height="328" rx="14"/></clipPath>
   </defs>
 
   <style>
     .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
     .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    .h {fill:#f0f6fc;font-size:17px;font-weight:620;letter-spacing:-.2px}
-    .sub{fill:#7d8590;font-size:11px}
-    .sec{fill:#7d8590;font-size:10px;letter-spacing:.18em}
-    .col{fill:#4ec9b0;font-size:10.5px;letter-spacing:.17em}
-    .chip rect{fill:#1c232d;stroke:#2b3440}
-    .chip text{fill:#c9d1d9;font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .h {fill:#f3eee4;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#8e887d;font-size:11px}
+    .sec{fill:#8e887d;font-size:10px;letter-spacing:.18em}
+    .num{fill:#756f66;font-size:9.5px;letter-spacing:.14em}
+    .lay{fill:#4ec9b0;font-size:10.5px;letter-spacing:.17em}
+    .tag{fill:#756f66;font-size:9.5px;letter-spacing:.06em}
+    .chip rect{fill:#1c2129;stroke:#43505d}
+    .chip text{fill:#d8d1c4;font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
 
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-    .rule{transform-box:fill-box;transform-origin:left center;animation:draw .8s cubic-bezier(.2,.8,.3,1) both}
-    @keyframes draw{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
-    .scan{animation:scan 8s linear infinite}
-    @keyframes scan{from{transform:translateY(-40px)}to{transform:translateY(300px)}}
-    @media (prefers-reduced-motion:reduce){*{animation:none !important} .scan{display:none}}
+
+    /* the pulse walks down the layers and each band lights as it arrives */
+    .band{animation:band 7s ease-in-out infinite}
+    .b1{animation-delay:0s} .b2{animation-delay:1.75s} .b3{animation-delay:3.5s} .b4{animation-delay:5.25s}
+    @keyframes band{0%,5%{stroke:#4ec9b0}26%,100%{stroke:#363f4a}}
+    .dot{animation:dot 7s ease-in-out infinite}
+    @keyframes dot{0%,5%{fill:#4ec9b0}26%,100%{fill:#43505d}}
+    .pkt{animation:pkt 7s cubic-bezier(.65,0,.35,1) infinite}
+    @keyframes pkt{
+      0%{transform:translateY(0);opacity:0} 4%{opacity:1} 20%{transform:translateY(0)}
+      25%{transform:translateY(52px)} 45%{transform:translateY(52px)}
+      50%{transform:translateY(104px)} 70%{transform:translateY(104px)}
+      75%{transform:translateY(156px)} 95%{transform:translateY(156px);opacity:1} 100%{transform:translateY(156px);opacity:0}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none !important} .pkt{display:none}}
   </style>
 
   <g clip-path="url(#s-card)">
-    <rect x="0" y="0" width="900" height="300" fill="#141a21"/>
-    <rect x="0" y="0" width="900" height="300" fill="url(#s-grid)"/>
-    <rect class="scan" x="0" y="0" width="900" height="40" fill="url(#s-scan)"/>
+    <rect x="0" y="0" width="900" height="330" fill="#1c2129"/>
+    <rect x="0" y="0" width="900" height="330" fill="url(#s-grid)"/>
     <rect x="0" y="0" width="900" height="1.5" fill="url(#s-hl)"/>
   </g>
-  <rect x="1" y="1" width="898" height="298" rx="14" fill="none" stroke="#2b3440"/>
+  <rect x="1" y="1" width="898" height="328" rx="14" fill="none" stroke="#363f4a"/>
 
   <text class="s h r"   x="44" y="50" style="animation-delay:.05s">Stack</text>
-  <text class="m sub r" x="44" y="70" style="animation-delay:.12s">grouped by the layer it lives in, not by how loud the logo is</text>
+  <text class="m sub r" x="44" y="70" style="animation-delay:.12s">four layers, top to bottom &#8212; the same order a request meets them</text>
   <text class="m sec r" x="856" y="34" text-anchor="end" style="animation-delay:.05s">01 &#8212; STACK</text>
 
-  <g transform="translate(44,108)">
-    <!-- FRONTEND -->
-    <g>
-      <text class="m col r" x="0" y="0" style="animation-delay:.20s">FRONTEND</text>
-      <rect class="rule" x="0" y="9" width="170" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.24s"/>
-      <g class="chip r" style="animation-delay:.30s"><rect x="0" y="22"  width="92" height="24" rx="6"/><text x="10" y="38">TypeScript</text></g>
-      <g class="chip r" style="animation-delay:.34s"><rect x="0" y="52"  width="92" height="24" rx="6"/><text x="10" y="68">JavaScript</text></g>
-      <g class="chip r" style="animation-delay:.38s"><rect x="0" y="82"  width="56" height="24" rx="6"/><text x="10" y="98">Blade</text></g>
-      <g class="chip r" style="animation-delay:.42s"><rect x="0" y="112" width="42" height="24" rx="6"/><text x="10" y="128">CSS</text></g>
-      <g class="chip r" style="animation-delay:.46s"><rect x="0" y="142" width="49" height="24" rx="6"/><text x="10" y="158">Vite</text></g>
-    </g>
-    <!-- BACKEND -->
-    <g transform="translate(206,0)">
-      <text class="m col r" x="0" y="0" style="animation-delay:.28s">BACKEND</text>
-      <rect class="rule" x="0" y="9" width="170" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.32s"/>
-      <g class="chip r" style="animation-delay:.38s"><rect x="0" y="22"  width="42" height="24" rx="6"/><text x="10" y="38">PHP</text></g>
-      <g class="chip r" style="animation-delay:.42s"><rect x="0" y="52"  width="70" height="24" rx="6"/><text x="10" y="68">Laravel</text></g>
-      <g class="chip r" style="animation-delay:.46s"><rect x="0" y="82"  width="78" height="24" rx="6"/><text x="10" y="98">Eloquent</text></g>
-      <g class="chip r" style="animation-delay:.50s"><rect x="0" y="112" width="49" height="24" rx="6"/><text x="10" y="128">REST</text></g>
-      <g class="chip r" style="animation-delay:.54s"><rect x="0" y="142" width="63" height="24" rx="6"/><text x="10" y="158">Queues</text></g>
-    </g>
-    <!-- DATA -->
-    <g transform="translate(412,0)">
-      <text class="m col r" x="0" y="0" style="animation-delay:.36s">DATA</text>
-      <rect class="rule" x="0" y="9" width="170" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.40s"/>
-      <g class="chip r" style="animation-delay:.46s"><rect x="0" y="22"  width="56" height="24" rx="6"/><text x="10" y="38">MySQL</text></g>
-      <g class="chip r" style="animation-delay:.50s"><rect x="0" y="52"  width="42" height="24" rx="6"/><text x="10" y="68">SQL</text></g>
-      <g class="chip r" style="animation-delay:.54s"><rect x="0" y="82"  width="92" height="24" rx="6"/><text x="10" y="98">Migrations</text></g>
-      <g class="chip r" style="animation-delay:.58s"><rect x="0" y="112" width="70" height="24" rx="6"/><text x="10" y="128">Seeders</text></g>
-      <g class="chip r" style="animation-delay:.62s"><rect x="0" y="142" width="70" height="24" rx="6"/><text x="10" y="158">Caching</text></g>
-    </g>
-    <!-- OPS -->
-    <g transform="translate(618,0)">
-      <text class="m col r" x="0" y="0" style="animation-delay:.44s">OPS</text>
-      <rect class="rule" x="0" y="9" width="170" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.48s"/>
-      <g class="chip r" style="animation-delay:.54s"><rect x="0" y="22"  width="42"  height="24" rx="6"/><text x="10" y="38">Git</text></g>
-      <g class="chip r" style="animation-delay:.58s"><rect x="0" y="52"  width="121" height="24" rx="6"/><text x="10" y="68">GitHub Actions</text></g>
-      <g class="chip r" style="animation-delay:.62s"><rect x="0" y="82"  width="78"  height="24" rx="6"/><text x="10" y="98">Composer</text></g>
-      <g class="chip r" style="animation-delay:.66s"><rect x="0" y="112" width="63"  height="24" rx="6"/><text x="10" y="128">Docker</text></g>
-      <g class="chip r" style="animation-delay:.70s"><rect x="0" y="142" width="56"  height="24" rx="6"/><text x="10" y="158">Linux</text></g>
-    </g>
+  <!-- spine on the left with a pulse walking down through the layers -->
+  <rect x="43.25" y="121" width="1.5" height="156" fill="url(#s-rail)"/>
+  <circle class="dot b1" cx="44" cy="121" r="3" fill="#43505d"/>
+  <circle class="dot b2" cx="44" cy="173" r="3" fill="#43505d"/>
+  <circle class="dot b3" cx="44" cy="225" r="3" fill="#43505d"/>
+  <circle class="dot b4" cx="44" cy="277" r="3" fill="#43505d"/>
+  <g class="pkt">
+    <circle cx="44" cy="121" r="7" fill="#4ec9b0" opacity=".35" filter="url(#s-glow)"/>
+    <circle cx="44" cy="121" r="2.6" fill="#4ec9b0"/>
+  </g>
+
+  <!-- 01 FRONTEND -->
+  <g class="r" style="animation-delay:.20s">
+    <rect class="band b1" x="64" y="100" width="792" height="42" rx="10" fill="#262d36" stroke="#363f4a"/>
+    <text class="m num" x="80"  y="125">01</text>
+    <text class="m lay" x="104" y="125">FRONTEND</text>
+    <g class="chip"><rect x="230" y="109" width="92" height="24" rx="6"/><text x="240" y="125">TypeScript</text></g>
+    <g class="chip"><rect x="330" y="109" width="92" height="24" rx="6"/><text x="340" y="125">JavaScript</text></g>
+    <g class="chip"><rect x="430" y="109" width="56" height="24" rx="6"/><text x="440" y="125">Blade</text></g>
+    <g class="chip"><rect x="494" y="109" width="42" height="24" rx="6"/><text x="504" y="125">CSS</text></g>
+    <g class="chip"><rect x="544" y="109" width="49" height="24" rx="6"/><text x="554" y="125">Vite</text></g>
+    <text class="m tag" x="840" y="125" text-anchor="end">what people touch</text>
+  </g>
+
+  <!-- 02 BACKEND -->
+  <g class="r" style="animation-delay:.32s">
+    <rect class="band b2" x="64" y="152" width="792" height="42" rx="10" fill="#262d36" stroke="#363f4a"/>
+    <text class="m num" x="80"  y="177">02</text>
+    <text class="m lay" x="104" y="177">BACKEND</text>
+    <g class="chip"><rect x="230" y="161" width="42" height="24" rx="6"/><text x="240" y="177">PHP</text></g>
+    <g class="chip"><rect x="280" y="161" width="70" height="24" rx="6"/><text x="290" y="177">Laravel</text></g>
+    <g class="chip"><rect x="358" y="161" width="78" height="24" rx="6"/><text x="368" y="177">Eloquent</text></g>
+    <g class="chip"><rect x="444" y="161" width="49" height="24" rx="6"/><text x="454" y="177">REST</text></g>
+    <g class="chip"><rect x="501" y="161" width="63" height="24" rx="6"/><text x="511" y="177">Queues</text></g>
+    <text class="m tag" x="840" y="177" text-anchor="end">where the logic lives</text>
+  </g>
+
+  <!-- 03 DATA -->
+  <g class="r" style="animation-delay:.44s">
+    <rect class="band b3" x="64" y="204" width="792" height="42" rx="10" fill="#262d36" stroke="#363f4a"/>
+    <text class="m num" x="80"  y="229">03</text>
+    <text class="m lay" x="104" y="229">DATA</text>
+    <g class="chip"><rect x="230" y="213" width="56" height="24" rx="6"/><text x="240" y="229">MySQL</text></g>
+    <g class="chip"><rect x="294" y="213" width="42" height="24" rx="6"/><text x="304" y="229">SQL</text></g>
+    <g class="chip"><rect x="344" y="213" width="92" height="24" rx="6"/><text x="354" y="229">Migrations</text></g>
+    <g class="chip"><rect x="444" y="213" width="70" height="24" rx="6"/><text x="454" y="229">Seeders</text></g>
+    <g class="chip"><rect x="522" y="213" width="70" height="24" rx="6"/><text x="532" y="229">Caching</text></g>
+    <text class="m tag" x="840" y="229" text-anchor="end">what has to persist</text>
+  </g>
+
+  <!-- 04 OPS -->
+  <g class="r" style="animation-delay:.56s">
+    <rect class="band b4" x="64" y="256" width="792" height="42" rx="10" fill="#262d36" stroke="#363f4a"/>
+    <text class="m num" x="80"  y="281">04</text>
+    <text class="m lay" x="104" y="281">OPS</text>
+    <g class="chip"><rect x="230" y="265" width="42"  height="24" rx="6"/><text x="240" y="281">Git</text></g>
+    <g class="chip"><rect x="280" y="265" width="121" height="24" rx="6"/><text x="290" y="281">GitHub Actions</text></g>
+    <g class="chip"><rect x="409" y="265" width="78"  height="24" rx="6"/><text x="419" y="281">Composer</text></g>
+    <g class="chip"><rect x="495" y="265" width="63"  height="24" rx="6"/><text x="505" y="281">Docker</text></g>
+    <g class="chip"><rect x="566" y="265" width="56"  height="24" rx="6"/><text x="576" y="281">Linux</text></g>
+    <text class="m tag" x="840" y="281" text-anchor="end">how it ships</text>
   </g>
 </svg>
