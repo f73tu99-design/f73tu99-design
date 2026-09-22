@@ -338,9 +338,15 @@ const mark = {
   langCount: Math.max(data.languages.length, prev?.langCount ?? 0),
   repos: Math.max(data.repos, prev?.repos ?? 0),
   stars: Math.max(data.stars, prev?.stars ?? 0),
-  updated: new Date().toISOString(),
 };
-await writeFile(HIGH_WATER, JSON.stringify(mark, null, 2) + '\n', 'utf8');
+// Only touch the file when a mark actually moves. Rewriting a timestamp every
+// run would produce an empty commit four times a day and collide with any
+// local push - the workflow's "nothing to commit" path depends on this.
+const markMoved = !prev || ['langBytes', 'langCount', 'repos', 'stars'].some((k) => mark[k] !== prev[k]);
+if (markMoved) {
+  await writeFile(HIGH_WATER, JSON.stringify({ ...mark, updated: new Date().toISOString() }, null, 2) + '\n', 'utf8');
+  console.log('raised high-water mark in assets/metrics.json');
+}
 
 console.log(
   `\n${LOGIN}: ${data.total} contributions | ${data.repos} repos | ${data.streak}d streak | ` +
