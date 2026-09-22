@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 262" width="900" height="262" role="img"
+     aria-label="Request lifecycle diagram. A request travels from browser to edge to API to service to database, then a response returns along the same path.">
+  <title>Request lifecycle &#8212; browser to database and back</title>
+
+  <defs>
+    <clipPath id="a-card"><rect x="1" y="1" width="898" height="260" rx="14"/></clipPath>
+    <linearGradient id="a-trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#4ec9b0" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#636e7b;font-size:11px}
+    .lbl{fill:#636e7b;font-size:10px;letter-spacing:.16em}
+    .nd {fill:#e6edf3;font-size:12.5px}
+    .nsub{fill:#636e7b;font-size:10px}
+
+    .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+    .node{animation:lit 7s ease-in-out infinite}
+    .n1{animation-delay:0s} .n2{animation-delay:.875s} .n3{animation-delay:1.75s}
+    .n4{animation-delay:2.625s} .n5{animation-delay:3.5s}
+    @keyframes lit{
+      0%,3%   {stroke:#4ec9b0}
+      16%     {stroke:#21262d}
+      100%    {stroke:#21262d}
+    }
+
+    .req{animation:req 7s linear infinite}
+    @keyframes req{
+      0%      {transform:translateX(0);opacity:0}
+      3%      {opacity:1}
+      50%     {transform:translateX(680px);opacity:1}
+      55%,100%{transform:translateX(680px);opacity:0}
+    }
+    .res{animation:res 7s linear infinite}
+    @keyframes res{
+      0%,56%  {transform:translateX(680px);opacity:0}
+      60%     {opacity:1}
+      96%     {transform:translateX(0);opacity:1}
+      100%    {transform:translateX(0);opacity:0}
+    }
+    .flow{stroke-dasharray:3 5;animation:flow 1.6s linear infinite}
+    @keyframes flow{to{stroke-dashoffset:-16}}
+     (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+
+  <g clip-path="url(#a-card)"><rect x="0" y="0" width="900" height="262" fill="#0d1117"/></g>
+  <rect x="1" y="1" width="898" height="260" rx="14" fill="none" stroke="#21262d"/>
+
+  <text class="s h r"   x="44" y="48" style="animation-delay:.05s">How a request actually moves</text>
+  <text class="m sub r" x="44" y="68" style="animation-delay:.12s">every tier below is one I own end to end</text>
+
+  <!-- connector spine -->
+  <line x1="110" y1="140" x2="790" y2="140" stroke="#21262d" stroke-width="1.5"/>
+
+  <!-- nodes -->
+  <g class="r" style="animation-delay:.22s">
+    <g transform="translate(45,108)">
+      <rect class="node n1" x="0" y="0" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <text class="m nd"   x="16" y="27">browser</text>
+      <text class="m nsub" x="16" y="45">ui &#183; routing</text>
+    </g>
+    <g transform="translate(215,108)">
+      <rect class="node n2" x="0" y="0" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <text class="m nd"   x="16" y="27">edge</text>
+      <text class="m nsub" x="16" y="45">cdn &#183; cache</text>
+    </g>
+    <g transform="translate(385,108)">
+      <rect class="node n3" x="0" y="0" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <text class="m nd"   x="16" y="27">api</text>
+      <text class="m nsub" x="16" y="45">auth &#183; validate</text>
+    </g>
+    <g transform="translate(555,108)">
+      <rect class="node n4" x="0" y="0" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <text class="m nd"   x="16" y="27">service</text>
+      <text class="m nsub" x="16" y="45">domain logic</text>
+    </g>
+    <g transform="translate(725,108)">
+      <rect class="node n5" x="0" y="0" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <text class="m nd"   x="16" y="27">database</text>
+      <text class="m nsub" x="16" y="45">mysql</text>
+    </g>
+  </g>
+
+  <!-- request packet (left to right, along the spine) -->
+  <g class="req">
+    <rect x="86" y="139" width="24" height="2" rx="1" fill="url(#a-trail)"/>
+    <circle cx="110" cy="140" r="4.5" fill="#4ec9b0" opacity=".18"/>
+    <circle cx="110" cy="140" r="2.4" fill="#4ec9b0"/>
+  </g>
+
+  <!-- response path -->
+  <text class="m lbl" x="44" y="210">RESPONSE</text>
+  <line class="flow" x1="110" y1="206" x2="790" y2="206" stroke="#2d3542" stroke-width="1.5"/>
+  <g class="res">
+    <circle cx="110" cy="206" r="4.5" fill="#7d8590" opacity=".16"/>
+    <circle cx="110" cy="206" r="2.2" fill="#8b949e"/>
+  </g>
+</svg>

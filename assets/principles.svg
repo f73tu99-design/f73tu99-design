@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 212" width="900" height="212" role="img"
+     aria-label="How I work. One: ship small, ship often. Two: types at the boundary. Three: measure before optimising.">
+  <title>How I work</title>
+  <defs><clipPath id="p-card"><rect x="1" y="1" width="898" height="210" rx="14"/></clipPath></defs>
+  <style>
+    .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#636e7b;font-size:11px}
+    .num{fill:#4ec9b0;font-size:10.5px;letter-spacing:.14em;opacity:.75}
+    .ttl{fill:#e6edf3;font-size:13.5px;font-weight:600}
+    .bd {fill:#7d8590;font-size:11.5px}
+    .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .bar{transform-box:fill-box;transform-origin:top center;animation:grow .9s cubic-bezier(.2,.8,.3,1) both}
+    @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+     (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+
+  <g clip-path="url(#p-card)"><rect x="0" y="0" width="900" height="212" fill="#0d1117"/></g>
+  <rect x="1" y="1" width="898" height="210" rx="14" fill="none" stroke="#21262d"/>
+
+  <text class="s h r"   x="44" y="48" style="animation-delay:.05s">How I work</text>
+  <text class="m sub r" x="44" y="68" style="animation-delay:.12s">three habits that survived contact with production</text>
+
+  <g transform="translate(44,104)">
+    <g>
+      <rect class="bar" x="0" y="0" width="2" height="62" fill="#4ec9b0" fill-opacity=".45" style="animation-delay:.22s"/>
+      <g class="r" style="animation-delay:.26s">
+        <text class="m num" x="16" y="10">01</text>
+        <text class="s ttl" x="16" y="34">Ship small, ship often</text>
+        <text class="m bd"  x="16" y="55">small PRs, reversible changes</text>
+      </g>
+    </g>
+    <g transform="translate(276,0)">
+      <rect class="bar" x="0" y="0" width="2" height="62" fill="#4ec9b0" fill-opacity=".45" style="animation-delay:.34s"/>
+      <g class="r" style="animation-delay:.38s">
+        <text class="m num" x="16" y="10">02</text>
+        <text class="s ttl" x="16" y="34">Types at the boundary</text>
+        <text class="m bd"  x="16" y="55">validate where data enters</text>
+      </g>
+    </g>
+    <g transform="translate(552,0)">
+      <rect class="bar" x="0" y="0" width="2" height="62" fill="#4ec9b0" fill-opacity=".45" style="animation-delay:.46s"/>
+      <g class="r" style="animation-delay:.50s">
+        <text class="m num" x="16" y="10">03</text>
+        <text class="s ttl" x="16" y="34">Measure, then optimise</text>
+        <text class="m bd"  x="16" y="55">profile first, guess never</text>
+      </g>
+    </g>
+  </g>
+</svg>

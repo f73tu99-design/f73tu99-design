@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 224" width="440" height="224" role="img" aria-label="Language breakdown for f73tu99-design: PHP 54 percent, TypeScript 30 percent, JavaScript 8 percent, CSS 7 percent, Blade 1 percent, Shell 0 percent.">
+  <style>
+    .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace} .s{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .lbl{fill:#4ec9b0;font-size:10px;letter-spacing:.17em;opacity:.8}
+    .cap{fill:#636e7b;font-size:9.5px;letter-spacing:.04em}
+    .val{fill:#e6edf3;font-size:14.5px}
+    .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    .growX{transform-box:fill-box;transform-origin:left center;animation:growX .9s cubic-bezier(.2,.8,.3,1) both}
+    @keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    .growY{transform-box:fill-box;transform-origin:bottom center;animation:growY .8s cubic-bezier(.2,.8,.3,1) both}
+    @keyframes growY{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+
+  <defs><clipPath id="lg-card"><rect x="1" y="1" width="438" height="222" rx="14"/></clipPath></defs>
+  <g clip-path="url(#lg-card)"><rect x="0" y="0" width="440" height="224" fill="#0d1117"/></g>
+  <rect x="1" y="1" width="438" height="222" rx="14" fill="none" stroke="#21262d"/>
+  <defs><clipPath id="lg-bar"><rect x="24" y="56" width="392" height="10" rx="5"/></clipPath></defs>
+  <text class="m lbl r" x="24" y="34" style="animation-delay:.05s">LANGUAGES</text>
+  <text class="m cap r" x="416" y="34" text-anchor="end" style="animation-delay:.05s">BY BYTES WRITTEN</text>
+  <rect x="24" y="56" width="392" height="10" rx="5" fill="#11161d"/>
+  <g clip-path="url(#lg-bar)">
+    <rect class="growX" x="24.0" y="56" width="212.8" height="10" fill="#4F5D95" style="animation-delay:0.18s"/>
+    <rect class="growX" x="236.8" y="56" width="115.7" height="10" fill="#3178c6" style="animation-delay:0.25s"/>
+    <rect class="growX" x="352.4" y="56" width="30.2" height="10" fill="#f1e05a" style="animation-delay:0.32s"/>
+    <rect class="growX" x="382.6" y="56" width="29.3" height="10" fill="#663399" style="animation-delay:0.39s"/>
+    <rect class="growX" x="411.9" y="56" width="3.6" height="10" fill="#f7523f" style="animation-delay:0.46s"/>
+    <rect class="growX" x="415.5" y="56" width="3.0" height="10" fill="#89e051" style="animation-delay:0.53s"/>
+  </g>
+  <g class="r" style="animation-delay:0.32s">
+    <circle cx="28" cy="100" r="4" fill="#4F5D95"/>
+    <text class="m" x="40" y="104" font-size="11.5" fill="#adbac7">PHP</text>
+    <text class="m" x="200" y="104" font-size="11" fill="#636e7b" text-anchor="end">54.3%</text>
+  </g>
+  <g class="r" style="animation-delay:0.37s">
+    <circle cx="228" cy="100" r="4" fill="#3178c6"/>
+    <text class="m" x="240" y="104" font-size="11.5" fill="#adbac7">TypeScript</text>
+    <text class="m" x="400" y="104" font-size="11" fill="#636e7b" text-anchor="end">29.5%</text>
+  </g>
+  <g class="r" style="animation-delay:0.42s">
+    <circle cx="28" cy="132" r="4" fill="#f1e05a"/>
+    <text class="m" x="40" y="136" font-size="11.5" fill="#adbac7">JavaScript</text>
+    <text class="m" x="200" y="136" font-size="11" fill="#636e7b" text-anchor="end">7.7%</text>
+  </g>
+  <g class="r" style="animation-delay:0.47s">
+    <circle cx="228" cy="132" r="4" fill="#663399"/>
+    <text class="m" x="240" y="136" font-size="11.5" fill="#adbac7">CSS</text>
+    <text class="m" x="400" y="136" font-size="11" fill="#636e7b" text-anchor="end">7.5%</text>
+  </g>
+  <g class="r" style="animation-delay:0.52s">
+    <circle cx="28" cy="164" r="4" fill="#f7523f"/>
+    <text class="m" x="40" y="168" font-size="11.5" fill="#adbac7">Blade</text>
+    <text class="m" x="200" y="168" font-size="11" fill="#636e7b" text-anchor="end">0.9%</text>
+  </g>
+  <g class="r" style="animation-delay:0.57s">
+    <circle cx="228" cy="164" r="4" fill="#89e051"/>
+    <text class="m" x="240" y="168" font-size="11.5" fill="#adbac7">Shell</text>
+    <text class="m" x="400" y="168" font-size="11" fill="#636e7b" text-anchor="end">0.1%</text>
+  </g>
+</svg>

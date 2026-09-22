@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 286" width="900" height="286" role="img"
+     aria-label="Stack, grouped by layer. Frontend: TypeScript, JavaScript, Blade, CSS, Vite. Backend: PHP, Laravel, Eloquent, REST, Queues. Data: MySQL, SQL, Migrations, Seeders, Caching. Ops: Git, GitHub Actions, Composer, Docker, Linux.">
+  <title>Stack &#8212; grouped by layer</title>
+
+  <defs>
+    <pattern id="s-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+    </pattern>
+    <clipPath id="s-card"><rect x="1" y="1" width="898" height="284" rx="14"/></clipPath>
+  </defs>
+
+  <style>
+    .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#636e7b;font-size:11px}
+    .col{fill:#4ec9b0;font-size:10.5px;letter-spacing:.17em}
+    .it {fill:#adbac7;font-size:12.5px}
+
+    .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+    .rule{transform-box:fill-box;transform-origin:left center;animation:draw .8s cubic-bezier(.2,.8,.3,1) both}
+    @keyframes draw{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+
+    .tick{animation:tick 4.5s ease-in-out infinite}
+    @keyframes tick{0%,100%{opacity:.30}50%{opacity:.85}}
+     (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+
+  <g clip-path="url(#s-card)">
+    <rect x="0" y="0" width="900" height="286" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="286" fill="url(#s-grid)"/>
+  </g>
+  <rect x="1" y="1" width="898" height="284" rx="14" fill="none" stroke="#21262d"/>
+
+  <text class="s h r"   x="44" y="50" style="animation-delay:.05s">Stack</text>
+  <text class="m sub r" x="44" y="70" style="animation-delay:.12s">grouped by the layer it lives in, not by how loud the logo is</text>
+
+  <g transform="translate(44,108)">
+    <g transform="translate(0,0)">
+      <text class="m col r" x="0" y="0" style="animation-delay:.20s">FRONTEND</text>
+      <rect class="rule" x="0" y="9" width="150" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.24s"/>
+      <g class="r" style="animation-delay:.30s">
+        <text class="m it" x="0" y="34">TypeScript</text>
+        <text class="m it" x="0" y="59">JavaScript</text>
+        <text class="m it" x="0" y="84">Blade</text>
+        <text class="m it" x="0" y="109">CSS</text>
+        <text class="m it" x="0" y="134">Vite</text>
+      </g>
+      <circle class="tick" cx="146" cy="30" r="2" fill="#4ec9b0"/>
+    </g>
+
+    <g transform="translate(206,0)">
+      <text class="m col r" x="0" y="0" style="animation-delay:.28s">BACKEND</text>
+      <rect class="rule" x="0" y="9" width="150" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.32s"/>
+      <g class="r" style="animation-delay:.38s">
+        <text class="m it" x="0" y="34">PHP</text>
+        <text class="m it" x="0" y="59">Laravel</text>
+        <text class="m it" x="0" y="84">Eloquent</text>
+        <text class="m it" x="0" y="109">REST</text>
+        <text class="m it" x="0" y="134">Queues</text>
+      </g>
+      <circle class="tick" cx="146" cy="30" r="2" fill="#4ec9b0" style="animation-delay:.9s"/>
+    </g>
+
+    <g transform="translate(412,0)">
+      <text class="m col r" x="0" y="0" style="animation-delay:.36s">DATA</text>
+      <rect class="rule" x="0" y="9" width="150" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.40s"/>
+      <g class="r" style="animation-delay:.46s">
+        <text class="m it" x="0" y="34">MySQL</text>
+        <text class="m it" x="0" y="59">SQL</text>
+        <text class="m it" x="0" y="84">Migrations</text>
+        <text class="m it" x="0" y="109">Seeders</text>
+        <text class="m it" x="0" y="134">Caching</text>
+      </g>
+      <circle class="tick" cx="146" cy="30" r="2" fill="#4ec9b0" style="animation-delay:1.8s"/>
+    </g>
+
+    <g transform="translate(618,0)">
+      <text class="m col r" x="0" y="0" style="animation-delay:.44s">OPS</text>
+      <rect class="rule" x="0" y="9" width="150" height="1.5" fill="#4ec9b0" fill-opacity=".38" style="animation-delay:.48s"/>
+      <g class="r" style="animation-delay:.54s">
+        <text class="m it" x="0" y="34">Git</text>
+        <text class="m it" x="0" y="59">GitHub Actions</text>
+        <text class="m it" x="0" y="84">Composer</text>
+        <text class="m it" x="0" y="109">Docker</text>
+        <text class="m it" x="0" y="134">Linux</text>
+      </g>
+      <circle class="tick" cx="146" cy="30" r="2" fill="#4ec9b0" style="animation-delay:2.7s"/>
+    </g>
+  </g>
+</svg>

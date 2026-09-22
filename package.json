@@ -1,0 +1,8 @@
+{
+  "name": "profile-panels",
+  "private": true,
+  "description": "Animated SVG panels for the f73tu99-design GitHub profile README",
+  "scripts": {
+    "panels": "node scripts/generate.mjs"
+  }
+}
