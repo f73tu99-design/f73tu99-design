@@ -5,7 +5,7 @@
  *   GITHUB_TOKEN  required  (the workflow's built-in token is enough)
  *   GH_LOGIN      optional  (defaults to the profile owner)
  */
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { T, esc, nfmt, frame, svg } from './theme.mjs';
 
 const LOGIN = process.env.GH_LOGIN || 'f73tu99-design';
@@ -273,19 +273,75 @@ ${bars}
   return svg(W, H, aria, body);
 }
 
+/* -- regression guard --------------------------------------------------
+ * The language split is scope-gated: a token without `repo` sees only public
+ * repositories, which for a mostly-private account collapses six languages
+ * into one. A scheduled run must never quietly replace richer data with
+ * poorer data, so we keep a high-water mark in assets/metrics.json and skip
+ * the rewrite when the new sample is drastically smaller.
+ * ---------------------------------------------------------------------- */
+const HIGH_WATER = new URL('metrics.json', OUT);
+const EROSION_LIMIT = 0.5; // a >50% drop means the token lost visibility, not that code vanished
+
+async function readHighWater() {
+  try {
+    return JSON.parse(await readFile(HIGH_WATER, 'utf8'));
+  } catch {
+    return null; // first run, or the file was removed on purpose
+  }
+}
+
 /* -- main -------------------------------------------------------------- */
 const data = await fetchMetrics();
 await mkdir(OUT, { recursive: true });
 
+const prev = await readHighWater();
+const langBytes = data.languages.reduce((a, l) => a + l.size, 0);
+
+const eroded =
+  prev &&
+  prev.langBytes > 0 &&
+  langBytes < prev.langBytes * EROSION_LIMIT;
+
 const panels = [
   ['stats.svg', renderStats(data)],
-  ['languages.svg', renderLanguages(data)],
   ['activity.svg', renderActivity(data)],
 ];
+
+if (eroded) {
+  console.warn(
+    `! languages.svg NOT rewritten: this token sees ${nfmt(langBytes)} bytes across ` +
+      `${data.languages.length} language(s), down from ${nfmt(prev.langBytes)} across ` +
+      `${prev.langCount}. That is a visibility drop, not a code change.\n` +
+      `  Add a METRICS_TOKEN secret with 'repo' scope to restore the full split. ` +
+      `See SETUP.md.`
+  );
+} else {
+  panels.push(['languages.svg', renderLanguages(data)]);
+}
 
 for (const [file, content] of panels) {
   await writeFile(new URL(file, OUT), content, 'utf8');
   console.log(`wrote assets/${file}`);
 }
 
-console.log(`\n${LOGIN}: ${data.total} contributions | ${data.commits} commits | ${data.repos} repos | ${data.streak}d streak`);
+// Only ever raise the high-water mark. Recording a degraded sample would let
+// the next run treat the erosion as the new normal.
+await writeFile(
+  HIGH_WATER,
+  JSON.stringify(
+    {
+      langBytes: Math.max(langBytes, prev?.langBytes ?? 0),
+      langCount: Math.max(data.languages.length, prev?.langCount ?? 0),
+      updated: new Date().toISOString(),
+    },
+    null,
+    2
+  ) + '\n',
+  'utf8'
+);
+
+console.log(
+  `\n${LOGIN}: ${data.total} contributions | ${data.repos} repos | ${data.streak}d streak | ` +
+    `${data.languages.length} languages (${nfmt(langBytes)} bytes)${eroded ? ' [languages panel preserved]' : ''}`
+);

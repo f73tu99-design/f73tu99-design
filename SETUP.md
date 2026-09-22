@@ -31,9 +31,28 @@ Consequences worth knowing:
 | `assets/languages.svg` | generated — `scripts/generate.mjs` |
 | `assets/activity.svg` | generated — `scripts/generate.mjs` |
 | `assets/snake.svg`, `assets/snake-dark.svg` | generated — `Platane/snk` action |
+| `assets/metrics.json` | generated — high-water mark for the regression guard |
 | everything else in `assets/` | hand-authored, edit freely |
 
 Hand-editing a generated file is pointless — the next workflow run overwrites it.
+
+## The regression guard
+
+The language split is scope-gated. A token without `repo` sees only public
+repositories, which for this account collapses six languages into one — and a
+scheduled run would happily commit that, silently making the profile worse.
+
+So `generate.mjs` keeps a high-water mark in `assets/metrics.json`. If a run
+reports less than half the language bytes it has seen before, it **refuses to
+rewrite** `languages.svg`, prints a warning, and leaves the richer panel in
+place. The mark only ever rises, so one weak run cannot reset the baseline.
+
+This already earned its keep: the very first workflow run — before any PAT
+existed — collapsed the panel to `JavaScript` alone. The guard now prevents
+that, and it also covers the case where `METRICS_TOKEN` silently expires.
+
+If you ever genuinely want to shrink the panel (say you really did delete a
+pile of code), delete `assets/metrics.json` and let the next run re-baseline.
 
 ## The token, and why it matters here
 
