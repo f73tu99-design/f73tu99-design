@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 118" width="900" height="118" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 132" width="900" height="132" role="img"
      aria-label="Footer. Thanks for scrolling. Always open to a good problem.">
   <title>Thanks for scrolling</title>
   <defs>
-    <clipPath id="f-card"><rect x="1" y="1" width="898" height="116" rx="14"/></clipPath>
+    <clipPath id="f-card"><rect x="1" y="1" width="898" height="130" rx="14"/></clipPath>
     <linearGradient id="f-fade" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#4ec9b0" stop-opacity="0"/>
       <stop offset="50%"  stop-color="#4ec9b0" stop-opacity=".5"/>
@@ -11,25 +11,26 @@
   </defs>
   <style>
     .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
-    .wave path{fill:none;stroke:#4ec9b0;stroke-width:1.4;stroke-opacity:.5}
+    .wave path{fill:none;stroke:#4ec9b0;stroke-width:1.4;stroke-opacity:.45}
     .w1{animation:drift 9s linear infinite}
-    .w2{animation:drift 13s linear infinite reverse;stroke-opacity:.22}
+    .w2{animation:drift 13s linear infinite reverse;stroke-opacity:.2}
     @keyframes drift{to{transform:translateX(-300px)}}
     .r{animation:fade 1s ease both .2s}
     @keyframes fade{from{opacity:0}to{opacity:1}}
-     (prefers-reduced-motion:reduce){*{animation:none !important}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   </style>
 
   <g clip-path="url(#f-card)">
-    <rect x="0" y="0" width="900" height="118" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="132" fill="#0d1117"/>
+    <!-- waves sit in their own band (y 92-114), well clear of the text above -->
     <g class="wave">
-      <path class="w1" d="M-300 74 q 75 -26 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0"/>
-      <path class="w2" d="M-300 82 q 100 -20 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0"/>
+      <path class="w1" d="M-300 102 q 75 -10 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0 t 150 0"/>
+      <path class="w2" d="M-300 108 q 100 -8 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0"/>
     </g>
     <rect x="0" y="0" width="900" height="1.5" fill="url(#f-fade)"/>
   </g>
-  <rect x="1" y="1" width="898" height="116" rx="14" fill="none" stroke="#21262d"/>
+  <rect x="1" y="1" width="898" height="130" rx="14" fill="none" stroke="#21262d"/>
 
-  <text class="m r" x="450" y="46" text-anchor="middle" font-size="13" fill="#adbac7">thanks for scrolling</text>
-  <text class="m r" x="450" y="66" text-anchor="middle" font-size="11" fill="#636e7b">always open to a good problem</text>
+  <text class="m r" x="450" y="48" text-anchor="middle" font-size="13" fill="#adbac7">thanks for scrolling</text>
+  <text class="m r" x="450" y="68" text-anchor="middle" font-size="11" fill="#636e7b">always open to a good problem</text>
 </svg>

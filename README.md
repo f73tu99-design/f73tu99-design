@@ -32,6 +32,12 @@
 <br />
 
 <div align="center">
+  <img src="./assets/automation.svg" width="100%" alt="Automation graph — webhook and schedule triggers feed a validate step; valid events flow to transform, then fan out to an API call and a store step; invalid events go to notify." />
+</div>
+
+<br />
+
+<div align="center">
   <img src="./assets/principles.svg" width="100%" alt="How I work — ship small and often, types at the boundary, measure then optimise." />
 </div>
 
