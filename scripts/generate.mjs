@@ -274,20 +274,28 @@ ${bars}
 }
 
 /* -- regression guard --------------------------------------------------
- * The language split is scope-gated: a token without `repo` sees only public
- * repositories, which for a mostly-private account collapses six languages
- * into one. A scheduled run must never quietly replace richer data with
- * poorer data, so we keep a high-water mark in assets/metrics.json and skip
- * the rewrite when the new sample is drastically smaller.
+ * Anything sourced from `repositories(ownerAffiliations: OWNER)` is scope-
+ * gated: a token without `repo` sees only public repositories. For a mostly-
+ * private account that collapses the language split, the repo count and the
+ * star count all at once, and a scheduled run would commit the wreckage.
+ *
+ * Contribution figures are NOT affected - the calendar total and
+ * restrictedContributionsCount are visible to the plain Actions token - so
+ * those always use fresh data.
+ *
+ * We keep a high-water mark in assets/metrics.json. A drastic drop in
+ * language bytes is the tell-tale that this token lost visibility, and when
+ * we see it we fall back to the stored figures for every gated field rather
+ * than publishing the smaller ones.
  * ---------------------------------------------------------------------- */
 const HIGH_WATER = new URL('metrics.json', OUT);
-const EROSION_LIMIT = 0.5; // a >50% drop means the token lost visibility, not that code vanished
+const EROSION_LIMIT = 0.5; // a >50% drop is lost visibility, not deleted code
 
 async function readHighWater() {
   try {
     return JSON.parse(await readFile(HIGH_WATER, 'utf8'));
   } catch {
-    return null; // first run, or the file was removed on purpose
+    return null; // first run, or the file was deliberately removed to re-baseline
   }
 }
 
@@ -297,51 +305,45 @@ await mkdir(OUT, { recursive: true });
 
 const prev = await readHighWater();
 const langBytes = data.languages.reduce((a, l) => a + l.size, 0);
+const scopeLimited = Boolean(prev && prev.langBytes > 0 && langBytes < prev.langBytes * EROSION_LIMIT);
 
-const eroded =
-  prev &&
-  prev.langBytes > 0 &&
-  langBytes < prev.langBytes * EROSION_LIMIT;
+if (scopeLimited) {
+  console.warn(
+    `! This token sees ${nfmt(langBytes)} bytes across ${data.languages.length} language(s), ` +
+      `down from ${nfmt(prev.langBytes)} across ${prev.langCount}.\n` +
+      `  That is a visibility drop, not a code change - it can only see public repos.\n` +
+      `  Keeping the stored figures for repos/stars and leaving languages.svg alone.\n` +
+      `  Add a METRICS_TOKEN secret with 'repo' scope to restore the full picture. See SETUP.md.`
+  );
+  // Publish the richer known-good figures instead of this token's narrow view.
+  data.repos = prev.repos ?? data.repos;
+  data.stars = prev.stars ?? data.stars;
+}
 
 const panels = [
   ['stats.svg', renderStats(data)],
   ['activity.svg', renderActivity(data)],
 ];
-
-if (eroded) {
-  console.warn(
-    `! languages.svg NOT rewritten: this token sees ${nfmt(langBytes)} bytes across ` +
-      `${data.languages.length} language(s), down from ${nfmt(prev.langBytes)} across ` +
-      `${prev.langCount}. That is a visibility drop, not a code change.\n` +
-      `  Add a METRICS_TOKEN secret with 'repo' scope to restore the full split. ` +
-      `See SETUP.md.`
-  );
-} else {
-  panels.push(['languages.svg', renderLanguages(data)]);
-}
+if (!scopeLimited) panels.push(['languages.svg', renderLanguages(data)]);
 
 for (const [file, content] of panels) {
   await writeFile(new URL(file, OUT), content, 'utf8');
   console.log(`wrote assets/${file}`);
 }
 
-// Only ever raise the high-water mark. Recording a degraded sample would let
-// the next run treat the erosion as the new normal.
-await writeFile(
-  HIGH_WATER,
-  JSON.stringify(
-    {
-      langBytes: Math.max(langBytes, prev?.langBytes ?? 0),
-      langCount: Math.max(data.languages.length, prev?.langCount ?? 0),
-      updated: new Date().toISOString(),
-    },
-    null,
-    2
-  ) + '\n',
-  'utf8'
-);
+// Only ever raise the marks. Recording a degraded sample would let the next
+// run treat the erosion as the new normal.
+const mark = {
+  langBytes: Math.max(langBytes, prev?.langBytes ?? 0),
+  langCount: Math.max(data.languages.length, prev?.langCount ?? 0),
+  repos: Math.max(data.repos, prev?.repos ?? 0),
+  stars: Math.max(data.stars, prev?.stars ?? 0),
+  updated: new Date().toISOString(),
+};
+await writeFile(HIGH_WATER, JSON.stringify(mark, null, 2) + '\n', 'utf8');
 
 console.log(
   `\n${LOGIN}: ${data.total} contributions | ${data.repos} repos | ${data.streak}d streak | ` +
-    `${data.languages.length} languages (${nfmt(langBytes)} bytes)${eroded ? ' [languages panel preserved]' : ''}`
+    `${data.languages.length} languages (${nfmt(langBytes)} bytes)` +
+    (scopeLimited ? ' [scope-limited: gated figures preserved]' : '')
 );

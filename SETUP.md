@@ -38,21 +38,35 @@ Hand-editing a generated file is pointless — the next workflow run overwrites 
 
 ## The regression guard
 
-The language split is scope-gated. A token without `repo` sees only public
-repositories, which for this account collapses six languages into one — and a
-scheduled run would happily commit that, silently making the profile worse.
+Everything sourced from `repositories(ownerAffiliations: OWNER)` is
+scope-gated — the **language split**, the **repo count** and the **star
+count**. A token without `repo` sees only public repositories, which for this
+account collapses all three at once, and a scheduled run would commit the
+wreckage without complaint.
 
-So `generate.mjs` keeps a high-water mark in `assets/metrics.json`. If a run
-reports less than half the language bytes it has seen before, it **refuses to
-rewrite** `languages.svg`, prints a warning, and leaves the richer panel in
-place. The mark only ever rises, so one weak run cannot reset the baseline.
+Contribution figures are *not* affected. The calendar total and
+`restrictedContributionsCount` are visible to the plain Actions token, which
+is why the 2.8k headline survived even the unguarded first run.
 
-This already earned its keep: the very first workflow run — before any PAT
-existed — collapsed the panel to `JavaScript` alone. The guard now prevents
-that, and it also covers the case where `METRICS_TOKEN` silently expires.
+So `generate.mjs` keeps a high-water mark in `assets/metrics.json`. A drop of
+more than half in language bytes is the tell-tale that the token lost
+visibility rather than that code was deleted. When that trips, the script:
 
-If you ever genuinely want to shrink the panel (say you really did delete a
-pile of code), delete `assets/metrics.json` and let the next run re-baseline.
+- leaves `languages.svg` untouched,
+- renders the stats panel using the **stored** repo/star figures,
+- prints a warning naming `METRICS_TOKEN`,
+- and still refreshes contributions, streak and activity from live data.
+
+The marks only ever rise, so one weak run cannot re-baseline them.
+
+This earned its keep twice within minutes of going live. The first workflow
+run — before any PAT existed — collapsed the language panel to `JavaScript`
+alone. The second, with the guard half-built, still published `1 repo` instead
+of 16. The generalised version catches both, and also covers `METRICS_TOKEN`
+silently expiring later.
+
+If you ever genuinely want to shrink the numbers (you really did delete a pile
+of code), delete `assets/metrics.json` and let the next run re-baseline.
 
 ## The token, and why it matters here
 

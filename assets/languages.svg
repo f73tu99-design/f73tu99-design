@@ -23,7 +23,7 @@
   <g clip-path="url(#lg-bar)">
     <rect class="growX" x="24.0" y="56" width="212.7" height="10" fill="#4F5D95" style="animation-delay:0.18s"/>
     <rect class="growX" x="236.7" y="56" width="115.6" height="10" fill="#3178c6" style="animation-delay:0.25s"/>
-    <rect class="growX" x="352.4" y="56" width="30.3" height="10" fill="#f1e05a" style="animation-delay:0.32s"/>
+    <rect class="growX" x="352.3" y="56" width="30.3" height="10" fill="#f1e05a" style="animation-delay:0.32s"/>
     <rect class="growX" x="382.6" y="56" width="29.3" height="10" fill="#663399" style="animation-delay:0.39s"/>
     <rect class="growX" x="411.9" y="56" width="3.6" height="10" fill="#f7523f" style="animation-delay:0.46s"/>
     <rect class="growX" x="415.5" y="56" width="3.0" height="10" fill="#89e051" style="animation-delay:0.53s"/>
