@@ -1,13 +1,13 @@
 // Shared design tokens. Change ACCENT here and every generated panel follows.
 export const T = {
-  bg:     '#0d1117',
-  panel:  '#11161d',
-  line:   '#21262d',
-  line2:  '#2d3542',
-  text:   '#e6edf3',
-  text2:  '#adbac7',
-  muted:  '#7d8590',
-  dim:    '#636e7b',
+  bg:     '#141a21',
+  panel:  '#1c232d',
+  line:   '#2b3440',
+  line2:  '#38424f',
+  text:   '#f0f6fc',
+  text2:  '#c9d1d9',
+  muted:  '#8b949e',
+  dim:    '#7d8590',
   accent: '#4ec9b0',
   mono:   'ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace',
   sans:   'ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
@@ -57,7 +57,7 @@ export const frame = (w, h, id) => `
   <defs>
     <clipPath id="${id}"><rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14"/></clipPath>
     <pattern id="${id}-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="${T.text}" fill-opacity=".035"/>
+      <circle cx="1" cy="1" r="1" fill="${T.text}" fill-opacity=".055"/>
     </pattern>
     <linearGradient id="${id}-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="${T.accent}" stop-opacity="0"/>

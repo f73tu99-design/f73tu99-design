@@ -57,21 +57,17 @@
 <br />
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/snake.svg" />
-    <img src="./assets/snake.svg" width="100%" alt="Animated snake eating this year's contribution graph." />
-  </picture>
+  <img src="./assets/snake.svg" width="100%" alt="Animated snake eating this year's contribution graph, one square per day." />
 </div>
 
 <br />
 
 <div align="center">
 
-<!-- EDIT: swap the placeholder URLs below for your real ones, or delete the badge. -->
-[![GitHub](https://img.shields.io/badge/GitHub-f73tu99--design-4ec9b0?style=for-the-badge&logo=github&logoColor=0d1117&labelColor=161b22)](https://github.com/f73tu99-design)
-[![Website](https://img.shields.io/badge/Website-add_yours-7d8590?style=for-the-badge&logo=firefoxbrowser&logoColor=e6edf3&labelColor=161b22)](#)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-add_yours-7d8590?style=for-the-badge&logo=linkedin&logoColor=e6edf3&labelColor=161b22)](#)
+<!-- Links live in the README (not in an SVG) because <a> inside an <img> is not clickable. -->
+<a href="https://github.com/f73tu99-design"><img src="./assets/btn-github.svg" height="40" alt="GitHub — f73tu99-design" /></a>
+&nbsp;&nbsp;
+<a href="https://x.com/f73tu99"><img src="./assets/btn-x.svg" height="40" alt="X — @f73tu99" /></a>
 
 </div>
 

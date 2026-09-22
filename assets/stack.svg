@@ -4,7 +4,7 @@
 
   <defs>
     <pattern id="s-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
     </pattern>
     <linearGradient id="s-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".55"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
@@ -18,12 +18,12 @@
   <style>
     .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
     .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
-    .sub{fill:#636e7b;font-size:11px}
-    .sec{fill:#636e7b;font-size:10px;letter-spacing:.18em}
+    .h {fill:#f0f6fc;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#7d8590;font-size:11px}
+    .sec{fill:#7d8590;font-size:10px;letter-spacing:.18em}
     .col{fill:#4ec9b0;font-size:10.5px;letter-spacing:.17em}
-    .chip rect{fill:#11161d;stroke:#21262d}
-    .chip text{fill:#adbac7;font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .chip rect{fill:#1c232d;stroke:#2b3440}
+    .chip text{fill:#c9d1d9;font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
 
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
@@ -35,12 +35,12 @@
   </style>
 
   <g clip-path="url(#s-card)">
-    <rect x="0" y="0" width="900" height="300" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="300" fill="#141a21"/>
     <rect x="0" y="0" width="900" height="300" fill="url(#s-grid)"/>
     <rect class="scan" x="0" y="0" width="900" height="40" fill="url(#s-scan)"/>
     <rect x="0" y="0" width="900" height="1.5" fill="url(#s-hl)"/>
   </g>
-  <rect x="1" y="1" width="898" height="298" rx="14" fill="none" stroke="#21262d"/>
+  <rect x="1" y="1" width="898" height="298" rx="14" fill="none" stroke="#2b3440"/>
 
   <text class="s h r"   x="44" y="50" style="animation-delay:.05s">Stack</text>
   <text class="m sub r" x="44" y="70" style="animation-delay:.12s">grouped by the layer it lives in, not by how loud the logo is</text>

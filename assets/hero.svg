@@ -10,16 +10,16 @@
       <stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="h-rail" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#21262d"/>
+      <stop offset="0%"   stop-color="#2b3440"/>
       <stop offset="50%"  stop-color="#2f3540"/>
-      <stop offset="100%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#2b3440"/>
     </linearGradient>
     <radialGradient id="h-halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 110) scale(320 200)">
       <stop offset="0%"   stop-color="#4ec9b0" stop-opacity=".07"/>
       <stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
     </radialGradient>
     <pattern id="h-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
     </pattern>
     <filter id="h-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
     <clipPath id="h-card"><rect x="1" y="1" width="898" height="258" rx="14"/></clipPath>
@@ -29,9 +29,9 @@
     .m    {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
     .s    {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .name {font-size:40px;font-weight:700;letter-spacing:-.8px}
-    .role {fill:#adbac7;font-size:15.5px}
-    .mut  {fill:#7d8590;font-size:12.5px}
-    .lbl  {fill:#636e7b;font-size:10.5px;letter-spacing:.16em}
+    .role {fill:#c9d1d9;font-size:15.5px}
+    .mut  {fill:#8b949e;font-size:12.5px}
+    .lbl  {fill:#7d8590;font-size:10.5px;letter-spacing:.16em}
     .acc  {fill:#4ec9b0}
 
     .r  {animation:fadeUp .75s cubic-bezier(.2,.7,.3,1) both}
@@ -77,12 +77,12 @@
   </style>
 
   <g clip-path="url(#h-card)">
-    <rect x="0" y="0" width="900" height="260" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="260" fill="#141a21"/>
     <rect x="0" y="0" width="900" height="260" fill="url(#h-grid)"/>
     <rect x="0" y="0" width="900" height="260" fill="url(#h-halo)"/>
     <rect class="sweep" x="0" y="0" width="420" height="2" fill="url(#h-sweep)"/>
   </g>
-  <rect x="1" y="1" width="898" height="258" rx="14" fill="none" stroke="#21262d"/>
+  <rect x="1" y="1" width="898" height="258" rx="14" fill="none" stroke="#2b3440"/>
 
   <!-- left column -->
   <g transform="translate(44,0)">
@@ -92,7 +92,7 @@
 
     <!-- EDIT: display name (glow copy underneath, crisp copy on top) -->
     <text class="s name glowt" x="0" y="106" fill="#4ec9b0" filter="url(#h-glow)">Jasper</text>
-    <text class="s name r d2" x="0" y="106" fill="#e6edf3">Jasper</text>
+    <text class="s name r d2" x="0" y="106" fill="#f0f6fc">Jasper</text>
 
     <g class="r d3">
       <text class="s role cyc c1" x="0" y="136">Full-stack engineer</text>
@@ -104,14 +104,14 @@
 
     <g transform="translate(0,186)">
       <g class="r d5">
-        <rect x="0" y="0" width="186" height="28" rx="14" fill="#11161d" stroke="#21262d"/>
+        <rect x="0" y="0" width="186" height="28" rx="14" fill="#1c232d" stroke="#2b3440"/>
         <circle class="ring" cx="18" cy="14" r="3.5" fill="none" stroke="#4ec9b0" stroke-width="1.2"/>
         <circle class="live" cx="18" cy="14" r="3.5" fill="#4ec9b0"/>
-        <text class="m" x="32" y="18" font-size="11.5" fill="#8b949e">open to opportunities</text>
+        <text class="m" x="32" y="18" font-size="11.5" fill="#9da8b3">open to opportunities</text>
       </g>
       <g class="r d6">
-        <rect x="198" y="0" width="142" height="28" rx="14" fill="#11161d" stroke="#21262d"/>
-        <text class="m" x="212" y="18" font-size="11.5" fill="#8b949e"><tspan class="acc">@</tspan>f73tu99-design</text>
+        <rect x="198" y="0" width="142" height="28" rx="14" fill="#1c232d" stroke="#2b3440"/>
+        <text class="m" x="212" y="18" font-size="11.5" fill="#9da8b3"><tspan class="acc">@</tspan>f73tu99-design</text>
       </g>
     </g>
 
@@ -120,8 +120,8 @@
 
   <!-- right column: the stack, with slow orbital rings behind it -->
   <g transform="translate(628,48)">
-    <circle class="orbit"  cx="126" cy="75" r="112" fill="none" stroke="#2d3542" stroke-width="1" stroke-dasharray="2 9" opacity=".7"/>
-    <circle class="orbit2" cx="126" cy="75" r="132" fill="none" stroke="#21262d" stroke-width="1" stroke-dasharray="1 14"/>
+    <circle class="orbit"  cx="126" cy="75" r="112" fill="none" stroke="#38424f" stroke-width="1" stroke-dasharray="2 9" opacity=".7"/>
+    <circle class="orbit2" cx="126" cy="75" r="132" fill="none" stroke="#2b3440" stroke-width="1" stroke-dasharray="1 14"/>
 
     <text class="m lbl" x="0" y="0">THE STACK</text>
 
@@ -132,17 +132,17 @@
     </g>
 
     <g transform="translate(24,14)">
-      <rect x="0" y="0"   width="204" height="32" rx="8" fill="#11161d" stroke="#21262d"/>
-      <text class="m" x="14" y="20" font-size="11.5" fill="#adbac7">client</text>
-      <text class="m" x="190" y="20" font-size="10" fill="#636e7b" text-anchor="end">Blade &#183; TS</text>
+      <rect x="0" y="0"   width="204" height="32" rx="8" fill="#1c232d" stroke="#2b3440"/>
+      <text class="m" x="14" y="20" font-size="11.5" fill="#c9d1d9">client</text>
+      <text class="m" x="190" y="20" font-size="10" fill="#7d8590" text-anchor="end">Blade &#183; TS</text>
 
-      <rect x="0" y="52"  width="204" height="32" rx="8" fill="#11161d" stroke="#21262d"/>
-      <text class="m" x="14" y="72" font-size="11.5" fill="#adbac7">service</text>
-      <text class="m" x="190" y="72" font-size="10" fill="#636e7b" text-anchor="end">PHP &#183; Laravel</text>
+      <rect x="0" y="52"  width="204" height="32" rx="8" fill="#1c232d" stroke="#2b3440"/>
+      <text class="m" x="14" y="72" font-size="11.5" fill="#c9d1d9">service</text>
+      <text class="m" x="190" y="72" font-size="10" fill="#7d8590" text-anchor="end">PHP &#183; Laravel</text>
 
-      <rect x="0" y="104" width="204" height="32" rx="8" fill="#11161d" stroke="#21262d"/>
-      <text class="m" x="14" y="124" font-size="11.5" fill="#adbac7">data</text>
-      <text class="m" x="190" y="124" font-size="10" fill="#636e7b" text-anchor="end">MySQL</text>
+      <rect x="0" y="104" width="204" height="32" rx="8" fill="#1c232d" stroke="#2b3440"/>
+      <text class="m" x="14" y="124" font-size="11.5" fill="#c9d1d9">data</text>
+      <text class="m" x="190" y="124" font-size="10" fill="#7d8590" text-anchor="end">MySQL</text>
     </g>
   </g>
 </svg>

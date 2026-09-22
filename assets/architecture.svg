@@ -5,7 +5,7 @@
   <defs>
     <clipPath id="a-card"><rect x="1" y="1" width="898" height="280" rx="14"/></clipPath>
     <pattern id="a-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#e6edf3" fill-opacity=".035"/>
+      <circle cx="1" cy="1" r="1" fill="#f0f6fc" fill-opacity=".055"/>
     </pattern>
     <linearGradient id="a-hl" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".55"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
@@ -19,13 +19,13 @@
   <style>
     .m {font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
     .s {font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    .h {fill:#e6edf3;font-size:17px;font-weight:620;letter-spacing:-.2px}
-    .sub{fill:#636e7b;font-size:11px}
-    .sec{fill:#636e7b;font-size:10px;letter-spacing:.18em}
-    .lbl{fill:#636e7b;font-size:10px;letter-spacing:.16em}
-    .step{fill:#4d5560;font-size:9.5px;letter-spacing:.14em}
-    .nd {fill:#e6edf3;font-size:12.5px}
-    .nsub{fill:#636e7b;font-size:10px}
+    .h {fill:#f0f6fc;font-size:17px;font-weight:620;letter-spacing:-.2px}
+    .sub{fill:#7d8590;font-size:11px}
+    .sec{fill:#7d8590;font-size:10px;letter-spacing:.18em}
+    .lbl{fill:#7d8590;font-size:10px;letter-spacing:.16em}
+    .step{fill:#636e7b;font-size:9.5px;letter-spacing:.14em}
+    .nd {fill:#f0f6fc;font-size:12.5px}
+    .nsub{fill:#7d8590;font-size:10px}
 
     .r{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
@@ -34,7 +34,7 @@
     .halo{animation:halo 7s ease-in-out infinite;opacity:0}
     .n1{animation-delay:0s} .n2{animation-delay:.875s} .n3{animation-delay:1.75s}
     .n4{animation-delay:2.625s} .n5{animation-delay:3.5s}
-    @keyframes lit {0%,3%{stroke:#4ec9b0}16%,100%{stroke:#21262d}}
+    @keyframes lit {0%,3%{stroke:#4ec9b0}16%,100%{stroke:#2b3440}}
     @keyframes halo{0%,3%{opacity:.35}16%,100%{opacity:0}}
 
     .req{animation:req 7s linear infinite}
@@ -51,18 +51,18 @@
   </style>
 
   <g clip-path="url(#a-card)">
-    <rect x="0" y="0" width="900" height="282" fill="#0d1117"/>
+    <rect x="0" y="0" width="900" height="282" fill="#141a21"/>
     <rect x="0" y="0" width="900" height="282" fill="url(#a-grid)"/>
     <rect x="0" y="0" width="900" height="1.5" fill="url(#a-hl)"/>
   </g>
-  <rect x="1" y="1" width="898" height="280" rx="14" fill="none" stroke="#21262d"/>
+  <rect x="1" y="1" width="898" height="280" rx="14" fill="none" stroke="#2b3440"/>
 
   <text class="s h r"   x="44" y="48" style="animation-delay:.05s">How a request actually moves</text>
   <text class="m sub r" x="44" y="68" style="animation-delay:.12s">every tier below is one I own end to end</text>
   <text class="m sec r" x="856" y="34" text-anchor="end" style="animation-delay:.05s">02 &#8212; ARCHITECTURE</text>
 
   <!-- connector spine -->
-  <line x1="110" y1="150" x2="790" y2="150" stroke="#21262d" stroke-width="1.5"/>
+  <line x1="110" y1="150" x2="790" y2="150" stroke="#2b3440" stroke-width="1.5"/>
 
   <!-- halos under the nodes -->
   <g>
@@ -77,31 +77,31 @@
   <g class="r" style="animation-delay:.22s">
     <g transform="translate(45,118)">
       <text class="m step" x="0" y="-10">01</text>
-      <rect class="node n1" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <rect class="node n1" width="130" height="64" rx="10" fill="#1c232d" stroke="#2b3440" stroke-width="1.4"/>
       <text class="m nd"   x="16" y="27">browser</text>
       <text class="m nsub" x="16" y="45">ui &#183; routing</text>
     </g>
     <g transform="translate(215,118)">
       <text class="m step" x="0" y="-10">02</text>
-      <rect class="node n2" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <rect class="node n2" width="130" height="64" rx="10" fill="#1c232d" stroke="#2b3440" stroke-width="1.4"/>
       <text class="m nd"   x="16" y="27">edge</text>
       <text class="m nsub" x="16" y="45">cdn &#183; cache</text>
     </g>
     <g transform="translate(385,118)">
       <text class="m step" x="0" y="-10">03</text>
-      <rect class="node n3" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <rect class="node n3" width="130" height="64" rx="10" fill="#1c232d" stroke="#2b3440" stroke-width="1.4"/>
       <text class="m nd"   x="16" y="27">api</text>
       <text class="m nsub" x="16" y="45">auth &#183; validate</text>
     </g>
     <g transform="translate(555,118)">
       <text class="m step" x="0" y="-10">04</text>
-      <rect class="node n4" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <rect class="node n4" width="130" height="64" rx="10" fill="#1c232d" stroke="#2b3440" stroke-width="1.4"/>
       <text class="m nd"   x="16" y="27">service</text>
       <text class="m nsub" x="16" y="45">domain logic</text>
     </g>
     <g transform="translate(725,118)">
       <text class="m step" x="0" y="-10">05</text>
-      <rect class="node n5" width="130" height="64" rx="10" fill="#11161d" stroke="#21262d" stroke-width="1.4"/>
+      <rect class="node n5" width="130" height="64" rx="10" fill="#1c232d" stroke="#2b3440" stroke-width="1.4"/>
       <text class="m nd"   x="16" y="27">database</text>
       <text class="m nsub" x="16" y="45">mysql</text>
     </g>
@@ -116,15 +116,15 @@
 
   <!-- response path -->
   <text class="m lbl" x="44" y="220">RESPONSE</text>
-  <line class="flow" x1="110" y1="216" x2="790" y2="216" stroke="#2d3542" stroke-width="1.5"/>
+  <line class="flow" x1="110" y1="216" x2="790" y2="216" stroke="#38424f" stroke-width="1.5"/>
   <g class="res">
-    <circle cx="110" cy="216" r="5" fill="#8b949e" opacity=".2" filter="url(#a-glow)"/>
-    <circle cx="110" cy="216" r="2.2" fill="#8b949e"/>
+    <circle cx="110" cy="216" r="5" fill="#9da8b3" opacity=".2" filter="url(#a-glow)"/>
+    <circle cx="110" cy="216" r="2.2" fill="#9da8b3"/>
   </g>
 
   <!-- outer g owns position, inner g owns the animation: a CSS transform would replace the attribute -->
   <g transform="translate(45,236)"><g class="ok">
-    <rect width="66" height="20" rx="10" fill="#11161d" stroke="#4ec9b0" stroke-opacity=".55"/>
+    <rect width="66" height="20" rx="10" fill="#1c232d" stroke="#4ec9b0" stroke-opacity=".55"/>
     <circle cx="12" cy="10" r="2.5" fill="#4ec9b0"/>
     <text class="m" x="22" y="14" font-size="10" fill="#4ec9b0">200 OK</text>
   </g></g>

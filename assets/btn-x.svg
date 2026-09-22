@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 40" width="170" height="40" role="img" aria-label="X: @f73tu99">
+  <title>X &#8212; @f73tu99</title>
+  <defs>
+    <clipPath id="bx-clip"><rect x="1" y="1" width="168" height="38" rx="19"/></clipPath>
+    <linearGradient id="bx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".14"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .sheen{animation:sheen 6s cubic-bezier(.6,0,.4,1) 1.5s infinite}
+    @keyframes sheen{0%{transform:translateX(-120px)}40%,100%{transform:translateX(200px)}}
+    .arr{animation:nudge 2.8s ease-in-out .4s infinite}
+    @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+  <rect x="1" y="1" width="168" height="38" rx="19" fill="#1c232d" stroke="#2b3440"/>
+  <g clip-path="url(#bx-clip)"><rect class="sheen" x="0" y="0" width="120" height="40" fill="url(#bx-sheen)"/></g>
+  <rect x="9" y="9" width="22" height="22" rx="7" fill="#4ec9b0" fill-opacity=".14" stroke="#4ec9b0" stroke-opacity=".55"/>
+  <!-- X mark -->
+  <path d="M14.5 14.5 L25.5 25.5 M25.5 14.5 L14.5 25.5" stroke="#4ec9b0" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <text class="m" x="42" y="24.5" font-size="12" fill="#f0f6fc">@f73tu99</text>
+  <text class="m arr" x="152" y="25" font-size="12" fill="#8b949e" text-anchor="end">&#8599;</text>
+</svg>

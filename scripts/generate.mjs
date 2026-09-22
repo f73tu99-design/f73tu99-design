@@ -238,23 +238,24 @@ ${legend}`;
 /* -- panel 3: last 30 days -------------------------------------------- */
 function renderActivity(d) {
   const W = 900;
-  const H = 190;
+  const H = 212;
   const days = d.days.slice(-30);
   const max = Math.max(1, ...days.map((x) => x.contributionCount));
   const left = 44;
   const right = W - 44;
   const gap = 5;
   const barW = (right - left - gap * (days.length - 1)) / days.length;
-  const baseY = 150;
-  const maxH = 74;
+  const baseY = 168;
+  const maxH = 84;
+  const xOf = (i) => left + i * (barW + gap);
 
   const bars = days
     .map((day, i) => {
-      const h = day.contributionCount ? Math.max(3, (day.contributionCount / max) * maxH) : 2;
-      const x = left + i * (barW + gap);
-      const fill = day.contributionCount ? T.accent : T.line2;
-      const op = day.contributionCount ? (0.35 + 0.65 * (day.contributionCount / max)).toFixed(2) : '1';
-      return `  <rect class="growY" x="${x.toFixed(1)}" y="${(baseY - h).toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${fill}" fill-opacity="${op}" style="animation-delay:${(0.15 + i * 0.018).toFixed(3)}s"><title>${esc(day.date)}: ${day.contributionCount}</title></rect>`;
+      const c = day.contributionCount;
+      const h = c ? Math.max(3, (c / max) * maxH) : 2;
+      const fill = c ? 'url(#ac-bar)' : T.line2;
+      const op = c ? (0.45 + 0.55 * (c / max)).toFixed(2) : '1';
+      return `  <rect class="growY" x="${xOf(i).toFixed(1)}" y="${(baseY - h).toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${fill}" fill-opacity="${op}" style="animation-delay:${(0.15 + i * 0.018).toFixed(3)}s"><title>${esc(day.date)}: ${c}</title></rect>`;
     })
     .join('\n');
 
@@ -264,21 +265,45 @@ function renderActivity(d) {
   // of the window are not artificially low.
   const all = d.days;
   const start = all.length - days.length;
-  const avgPath = days
-    .map((_, i) => {
-      const idx = start + i;
-      const win = all.slice(Math.max(0, idx - 6), idx + 1);
-      const v = win.reduce((a, x) => a + x.contributionCount, 0) / win.length;
-      const x = left + i * (barW + gap) + barW / 2;
-      const y = baseY - (v / max) * maxH;
-      return `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`;
-    })
-    .join(' ');
+  const pts = days.map((_, i) => {
+    const idx = start + i;
+    const win = all.slice(Math.max(0, idx - 6), idx + 1);
+    const v = win.reduce((a, x) => a + x.contributionCount, 0) / win.length;
+    return [xOf(i) + barW / 2, baseY - (v / max) * maxH];
+  });
+  const avgPath = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+  const areaPath = pts.length
+    ? `${avgPath} L${pts[pts.length - 1][0].toFixed(1)} ${baseY} L${pts[0][0].toFixed(1)} ${baseY} Z`
+    : '';
 
-  const first = days.length ? days[0].date : '';
-  const last = days.length ? days[days.length - 1].date : '';
+  // Peak callout above the tallest bar.
+  const peakIdx = days.findIndex((x) => x.contributionCount === max);
+  let peak = '';
+  if (peakIdx >= 0 && days[peakIdx].contributionCount > 0) {
+    const px = xOf(peakIdx) + barW / 2;
+    const top = baseY - maxH;
+    const w = 14 + String(max).length * 7;
+    peak = `  <g class="r" style="animation-delay:.95s">
+    <line x1="${px.toFixed(1)}" y1="${(top - 4).toFixed(1)}" x2="${px.toFixed(1)}" y2="${(top - 10).toFixed(1)}" stroke="${T.accent}" stroke-opacity=".6"/>
+    <rect x="${(px - w / 2).toFixed(1)}" y="${(top - 26).toFixed(1)}" width="${w}" height="16" rx="8" fill="${T.panel}" stroke="${T.accent}" stroke-opacity=".6"/>
+    <text class="m" x="${px.toFixed(1)}" y="${(top - 14.5).toFixed(1)}" font-size="9.5" fill="${T.accent}" text-anchor="middle">${max}</text>
+  </g>`;
+  }
+
+  const fmt = (iso) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', timeZone: 'UTC' });
+  const first = days.length ? fmt(days[0].date) : '';
+  const last = days.length ? fmt(days[days.length - 1].date) : '';
 
   const body = `${frame(W, H, 'ac-card')}
+  <defs>
+    <linearGradient id="ac-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${T.accent}"/><stop offset="100%" stop-color="${T.accent}" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="ac-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${T.accent}" stop-opacity=".22"/><stop offset="100%" stop-color="${T.accent}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
   <text class="m lbl r" x="${left}" y="34" style="animation-delay:.05s">ACTIVITY &#183; LAST 30 DAYS</text>
 ${section(W, '07', 'ACTIVITY', 44)}
   <text class="m cap r" x="${left}" y="52" style="animation-delay:.12s">${sum} CONTRIBUTIONS &#183; PEAK ${max} &#183; </text>
@@ -286,10 +311,12 @@ ${section(W, '07', 'ACTIVITY', 44)}
   <text class="m cap r" x="${left + 260}" y="52" style="animation-delay:.12s">7-DAY AVERAGE</text>
   <line x1="${left}" y1="${baseY + 1}" x2="${right}" y2="${baseY + 1}" stroke="${T.line}"/>
 ${bars}
-  <path class="draw" d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+  <path class="r" d="${areaPath}" fill="url(#ac-area)" style="animation-delay:.9s"/>
   <path d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".18" filter="url(#ac-card-glow)"/>
-  <text class="m cap r" x="${left}" y="172" style="animation-delay:.6s">${esc(first)}</text>
-  <text class="m cap r" x="${right}" y="172" text-anchor="end" style="animation-delay:.6s">${esc(last)}</text>`;
+  <path class="draw" d="${avgPath}" fill="none" stroke="${T.accent}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+${peak}
+  <text class="m cap r" x="${left}" y="192" style="animation-delay:.6s">${esc(first)}</text>
+  <text class="m cap r" x="${right}" y="192" text-anchor="end" style="animation-delay:.6s">${esc(last)}</text>`;
 
   const aria = `Daily contribution chart for the last 30 days: ${sum} contributions, peak of ${max} in a single day.`;
   return svg(W, H, aria, body);

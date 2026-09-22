@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 40" width="214" height="40" role="img" aria-label="GitHub: f73tu99-design">
+  <title>GitHub &#8212; f73tu99-design</title>
+  <defs>
+    <clipPath id="bg-clip"><rect x="1" y="1" width="212" height="38" rx="19"/></clipPath>
+    <linearGradient id="bg-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0"/><stop offset="50%" stop-color="#4ec9b0" stop-opacity=".14"/><stop offset="100%" stop-color="#4ec9b0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .sheen{animation:sheen 6s cubic-bezier(.6,0,.4,1) infinite}
+    @keyframes sheen{0%{transform:translateX(-120px)}40%,100%{transform:translateX(240px)}}
+    .arr{animation:nudge 2.8s ease-in-out infinite}
+    @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+  <rect x="1" y="1" width="212" height="38" rx="19" fill="#1c232d" stroke="#2b3440"/>
+  <g clip-path="url(#bg-clip)"><rect class="sheen" x="0" y="0" width="120" height="40" fill="url(#bg-sheen)"/></g>
+  <rect x="9" y="9" width="22" height="22" rx="7" fill="#4ec9b0" fill-opacity=".14" stroke="#4ec9b0" stroke-opacity=".55"/>
+  <!-- simplified octocat silhouette -->
+  <path fill="#4ec9b0" d="M20 13.2a6.8 6.8 0 0 0-2.15 13.25c.34.06.46-.15.46-.33v-1.2c-1.89.41-2.29-.8-2.29-.8-.31-.78-.76-.99-.76-.99-.62-.42.05-.41.05-.41.68.05 1.04.7 1.04.7.61 1.04 1.6.74 1.99.57.06-.44.24-.74.43-.91-1.51-.17-3.1-.75-3.1-3.36 0-.74.27-1.35.7-1.82-.07-.17-.3-.86.07-1.8 0 0 .57-.18 1.87.7a6.5 6.5 0 0 1 3.4 0c1.3-.88 1.87-.7 1.87-.7.37.94.14 1.63.07 1.8.44.47.7 1.08.7 1.82 0 2.62-1.6 3.19-3.12 3.36.25.21.47.63.47 1.27v1.88c0 .18.12.4.46.33A6.8 6.8 0 0 0 20 13.2z"/>
+  <text class="m" x="42" y="24.5" font-size="12" fill="#f0f6fc">f73tu99-design</text>
+  <text class="m arr" x="196" y="25" font-size="12" fill="#8b949e" text-anchor="end">&#8599;</text>
+</svg>
