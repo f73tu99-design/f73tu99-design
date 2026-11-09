@@ -14,13 +14,13 @@
 -->
 
 <div align="center">
-  <img src="./assets/hero.svg" width="100%" alt="Jasper — full-stack engineer. Client, service and data tiers shown as a connected stack. Open to opportunities." />
+  <img src="./assets/hero.svg" width="100%" alt="Jasper — CRM systems, websites and automations. Designed by me, built with AI coding agents. Client, service and data tiers shown as a connected stack. Open to opportunities." />
 </div>
 
 <br />
 
 <div align="center">
-  <img src="./assets/stack.svg" width="100%" alt="Stack grouped by layer — frontend: TypeScript, JavaScript, Blade, CSS, Vite; backend: PHP, Laravel, Eloquent, REST, Queues; data: MySQL, SQL, Migrations, Seeders, Caching; ops: Git, GitHub Actions, Composer, Docker, Linux." />
+  <img src="./assets/stack.svg" width="100%" alt="What my projects run on, grouped by layer — frontend: React, JavaScript, Inertia, Tailwind, Vite; backend: PHP, Laravel, Eloquent, REST, Queues; data: MySQL, SQL, Migrations, Seeders, Caching; ops: Git, GitHub Actions, Composer, Cloudflare, Linux. I direct the build with AI coding agents." />
 </div>
 
 <br />

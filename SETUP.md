@@ -108,7 +108,7 @@ it — it inlines every SVG as a data URI, which matches how GitHub renders them
   `grep -rl '#4ec9b0' assets scripts` finds every occurrence.
 - **Your name** is marked `<!-- EDIT: display name -->` in `assets/hero.svg`.
 - **Stack lists** are plain `<text>` elements in `assets/stack.svg`.
-- **Tier labels** (`Blade · TS`, `PHP · Laravel`, `MySQL`) are in
+- **Tier labels** (`React · Inertia`, `PHP · Laravel`, `MySQL`) are in
   `assets/hero.svg`; `MySQL` is an assumption from your Laravel usage — change
   it if you're on Postgres or something else.
 

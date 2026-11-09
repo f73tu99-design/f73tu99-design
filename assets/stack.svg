@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330" role="img"
-     aria-label="Stack as four layers. Frontend: TypeScript, JavaScript, Blade, CSS, Vite. Backend: PHP, Laravel, Eloquent, REST, Queues. Data: MySQL, SQL, Migrations, Seeders, Caching. Ops: Git, GitHub Actions, Composer, Docker, Linux.">
-  <title>Stack &#8212; four layers, top to bottom</title>
+     aria-label="Stack as four layers. What my projects run on; I direct the build with AI coding agents. Frontend: React, JavaScript, Inertia, Tailwind, Vite. Backend: PHP, Laravel, Eloquent, REST, Queues. Data: MySQL, SQL, Migrations, Seeders, Caching. Ops: Git, GitHub Actions, Composer, Cloudflare, Linux.">
+  <title>Stack &#8212; what my projects run on</title>
 
   <defs>
     <pattern id="s-grid" width="22" height="22" patternUnits="userSpaceOnUse">
@@ -55,7 +55,7 @@
   <rect x="1" y="1" width="898" height="328" rx="14" fill="none" stroke="#363f4a"/>
 
   <text class="s h r"   x="44" y="50" style="animation-delay:.05s">Stack</text>
-  <text class="m sub r" x="44" y="70" style="animation-delay:.12s">four layers, top to bottom &#8212; the same order a request meets them</text>
+  <text class="m sub r" x="44" y="70" style="animation-delay:.12s">what my projects run on &#8212; I direct the build with AI coding agents</text>
   <text class="m sec r" x="856" y="34" text-anchor="end" style="animation-delay:.05s">01 &#8212; STACK</text>
 
   <!-- spine on the left with a pulse walking down through the layers -->
@@ -74,11 +74,11 @@
     <rect class="band b1" x="64" y="100" width="792" height="42" rx="10" fill="#262d36" stroke="#363f4a"/>
     <text class="m num" x="80"  y="125">01</text>
     <text class="m lay" x="104" y="125">FRONTEND</text>
-    <g class="chip"><rect x="230" y="109" width="92" height="24" rx="6"/><text x="240" y="125">TypeScript</text></g>
-    <g class="chip"><rect x="330" y="109" width="92" height="24" rx="6"/><text x="340" y="125">JavaScript</text></g>
-    <g class="chip"><rect x="430" y="109" width="56" height="24" rx="6"/><text x="440" y="125">Blade</text></g>
-    <g class="chip"><rect x="494" y="109" width="42" height="24" rx="6"/><text x="504" y="125">CSS</text></g>
-    <g class="chip"><rect x="544" y="109" width="49" height="24" rx="6"/><text x="554" y="125">Vite</text></g>
+    <g class="chip"><rect x="230" y="109" width="56" height="24" rx="6"/><text x="240" y="125">React</text></g>
+    <g class="chip"><rect x="294" y="109" width="92" height="24" rx="6"/><text x="304" y="125">JavaScript</text></g>
+    <g class="chip"><rect x="394" y="109" width="70" height="24" rx="6"/><text x="404" y="125">Inertia</text></g>
+    <g class="chip"><rect x="472" y="109" width="78" height="24" rx="6"/><text x="482" y="125">Tailwind</text></g>
+    <g class="chip"><rect x="558" y="109" width="49" height="24" rx="6"/><text x="568" y="125">Vite</text></g>
     <text class="m tag" x="840" y="125" text-anchor="end">what people touch</text>
   </g>
 
@@ -116,8 +116,8 @@
     <g class="chip"><rect x="230" y="265" width="42"  height="24" rx="6"/><text x="240" y="281">Git</text></g>
     <g class="chip"><rect x="280" y="265" width="121" height="24" rx="6"/><text x="290" y="281">GitHub Actions</text></g>
     <g class="chip"><rect x="409" y="265" width="78"  height="24" rx="6"/><text x="419" y="281">Composer</text></g>
-    <g class="chip"><rect x="495" y="265" width="63"  height="24" rx="6"/><text x="505" y="281">Docker</text></g>
-    <g class="chip"><rect x="566" y="265" width="56"  height="24" rx="6"/><text x="576" y="281">Linux</text></g>
+    <g class="chip"><rect x="495" y="265" width="92"  height="24" rx="6"/><text x="505" y="281">Cloudflare</text></g>
+    <g class="chip"><rect x="595" y="265" width="56"  height="24" rx="6"/><text x="605" y="281">Linux</text></g>
     <text class="m tag" x="840" y="281" text-anchor="end">how it ships</text>
   </g>
 </svg>
